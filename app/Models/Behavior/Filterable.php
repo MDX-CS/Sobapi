@@ -1,6 +1,8 @@
 <?php
 
-namespace App\Filters;
+namespace App\Models\Behavior;
+
+use App\Filters\Filter;
 
 trait Filterable
 {

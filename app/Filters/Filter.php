@@ -3,6 +3,8 @@
 namespace App\Filters;
 
 use Illuminate\Http\Request;
+use App\Filters\Behavior\Orderable;
+use App\Filters\Behavior\Searchable;
 use Illuminate\Database\Eloquent\Builder;
 
 abstract class Filter

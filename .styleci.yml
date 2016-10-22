@@ -11,4 +11,4 @@ finder:
     - "vendor/"
   not-name:
     - "server.php"
-    - "public/index.php"
+    - "index.php"

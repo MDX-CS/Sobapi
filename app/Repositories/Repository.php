@@ -67,5 +67,4 @@ abstract class Repository
      * @return array
      */
     abstract protected function casts();
-
 }

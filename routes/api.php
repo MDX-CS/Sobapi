@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Models\Sob;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +13,6 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+Route::resource('sobs', 'Api\SobController', [
+    'except' => ['create', 'edit'],
+]);

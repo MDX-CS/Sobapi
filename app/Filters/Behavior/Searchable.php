@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Filters;
+namespace App\Filters\Behavior;
 
 trait Searchable
 {
@@ -48,6 +48,6 @@ trait Searchable
             return $this->resolveSearch($next, $key, $scope);
         }
 
-        $this->builder->orWhere("{$last}.{$column}", 'regexp', $key);
+        $this->builder->orWhere("{$last}.{$column}", 'like', "%{$key}%");
     }
 }

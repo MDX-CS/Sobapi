@@ -9,3 +9,5 @@ finder:
     - "storage/"
     - "tests/"
     - "vendor/"
+    - "server.php"
+    - "public/index.php"

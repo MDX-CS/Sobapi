@@ -9,5 +9,6 @@ finder:
     - "storage/"
     - "tests/"
     - "vendor/"
+  not-name:
     - "server.php"
     - "public/index.php"

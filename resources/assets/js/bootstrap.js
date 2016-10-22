@@ -32,8 +32,8 @@ window.Sobapi = {
  */
 
 Vue.http.interceptors.push((request, next) => {
-    request.headers.set('X-CSRF-TOKEN', Sobapi.csrfToken);
-    request.headers.set('Authorization', `Bearer ${Sobapi.apiToken}`);
+  request.headers.set('X-CSRF-TOKEN', Sobapi.csrfToken);
+  request.headers.set('Authorization', `Bearer ${Sobapi.apiToken}`);
 
-    next();
+  next();
 });

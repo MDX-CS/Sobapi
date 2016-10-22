@@ -1,0 +1,35 @@
+language: php
+
+php:
+  - 5.6
+  - 7.0
+  - 7.1
+
+sudo: false
+
+cache:
+    directories:
+        - node_modules
+
+before_install:
+  - nvm install 5.1
+
+before_script:
+  - mkdir -p storage/framework/{cache,views,sessions}
+  - rouch database/database.sqlite
+  - cp .env.travis .env
+  - php artisan key:generate
+  - php artisan cache:clear
+  - php artisan config:clear
+  - php artisan view:clear
+  - php artisan clear-compiled
+
+
+install:
+  - travis_retry composer install
+  - travis_retry npm install
+
+script:
+  - php artisan migrate --seed
+  - gulp
+  - vendor/bin/phpunit

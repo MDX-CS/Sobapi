@@ -1,0 +1,11 @@
+preset: laravel
+
+risky: false
+
+finder:
+  exclude:
+    - "bootstrap/"
+    - "database/"
+    - "storage/"
+    - "tests/"
+    - "vendor/"

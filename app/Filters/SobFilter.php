@@ -17,6 +17,6 @@ class SobFilter extends Filter
      * @var array
      */
     protected $orderable = [
-        'sob' => 'sob'
+        'sob' => 'sob',
     ];
 }

@@ -153,7 +153,7 @@ class Responder
     }
 
     /**
-     * Magic method to call the with* methods
+     * Magic method to call the with* methods.
      *
      * @param  string  $method
      * @param  array  $arguments

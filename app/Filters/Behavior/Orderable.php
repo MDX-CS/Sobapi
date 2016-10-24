@@ -33,7 +33,7 @@ trait Orderable
         if (strpos($column, '.')) {
             $scope = strstr($column, '.', true);
             $singular = str_singular($scope);
-            $next = substr(strstr($column, '.'), 1, strlen(strstr($column, '.')) - 1);
+            $next = substr(strstr($column, '.'), 1);
 
             $this->builder->join($scope, "{$last}.{$singular}_id", "{$scope}.id");
 

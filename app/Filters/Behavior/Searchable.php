@@ -37,7 +37,7 @@ trait Searchable
         if (strpos($column, '.')) {
             $scope = strstr($column, '.', true);
             $singular = str_singular($scope);
-            $next = substr(strstr($column, '.'), 1, strlen(strstr($column, '.')) - 1);
+            $next = substr(strstr($column, '.'), 1);
 
             if (! in_array($scope, $this->loaded)) {
                 $this->loaded[] = $scope;

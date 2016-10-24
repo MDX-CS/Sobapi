@@ -21,9 +21,10 @@ abstract class ApiController extends Controller
      */
     public function __construct(Responder $responder)
     {
-        // $this->middleware('auth:api');
-
         $this->responder = $responder;
+
+        $this->middleware('json');
+        $this->middleware('auth:api');
     }
 
     /**

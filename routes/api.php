@@ -11,6 +11,6 @@
 |
 */
 
-Route::resource('sobs', 'Api\SobController', [
+Route::resource('sobs', 'SobController', [
     'except' => ['create', 'edit'],
 ]);

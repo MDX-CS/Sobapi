@@ -17,8 +17,6 @@ trait GeneratesAuthTokens
 
         $token = $user->createToken('Test')->accessToken;
 
-        return $this->transformHeadersToServerVars([
-            'Authorization' => 'Bearer ' . $token,
-        ]);
+        return $token;
     }
 }

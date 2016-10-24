@@ -2,13 +2,15 @@
 
 use Carbon\Carbon;
 use App\Models\Sob;
-use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class SobsTest extends TestCase
 {
-    use DatabaseMigrations, DatabaseTransactions;
+    use DatabaseMigrations,
+        DatabaseTransactions,
+        GeneratesAuthTokens,
+        MakesAuthorizedJsonRequests;
 
     protected $sobs;
 
@@ -22,7 +24,7 @@ class SobsTest extends TestCase
     /** @test */
     public function it_fetches_all_sobs()
     {
-        $sobs = $this->call('GET', '/api/sobs');
+        $sobs = $this->request('GET', '/api/sobs');
 
         $this->assertResponseOk();
         $this->assertEquals(
@@ -34,7 +36,7 @@ class SobsTest extends TestCase
     /** @test */
     public function it_fetches_a_sob_by_its_id()
     {
-        $sob = $this->call('GET', '/api/sobs/1');
+        $sob = $this->request('GET', '/api/sobs/1');
 
         $this->assertResponseOk();
         $this->assertEquals(
@@ -46,7 +48,7 @@ class SobsTest extends TestCase
     public function it_deletes_a_sob_by_given_id()
     {
         $count = Sob::all()->count();
-        $sob = $this->call('DELETE', '/api/sobs/1');
+        $sob = $this->request('DELETE', '/api/sobs/1');
 
         $this->assertResponseOk();
         $this->assertCount(--$count, Sob::all());
@@ -57,7 +59,7 @@ class SobsTest extends TestCase
     {
         $count = Sob::all()->count();
 
-        $sob = $this->call('POST', '/api/sobs', [
+        $sob = $this->request('POST', '/api/sobs', [
             'sob' => 'Test sob',
             'url' => 'http://test.dev',
             'level_id' => 1,
@@ -76,7 +78,7 @@ class SobsTest extends TestCase
     /** @test */
     public function it_updates_a_sob()
     {
-        $sob = $this->call('PATCH', '/api/sobs/1', [
+        $sob = $this->request('PATCH', '/api/sobs/1', [
             'sob' => 'Another test sob',
             'url' => 'http://test.dev',
         ]);
@@ -90,7 +92,7 @@ class SobsTest extends TestCase
     /** @test */
     public function it_validates_data_when_storing_a_sob()
     {
-        $sob = $this->call('POST', '/api/sobs', [
+        $sob = $this->request('POST', '/api/sobs', [
             'sob' => 'Test sob',
             'url' => 'adfasdf',
             'level_id' => 1,
@@ -105,7 +107,7 @@ class SobsTest extends TestCase
     /** @test */
     public function it_validates_data_when_updating_a_sob()
     {
-        $sob = $this->call('PATCH', '/api/sobs/1', [
+        $sob = $this->request('PATCH', '/api/sobs/1', [
             'url' => 'asdfad',
         ]);
 
@@ -115,7 +117,7 @@ class SobsTest extends TestCase
     /** @test */
     public function it_properly_fails_when_non_existent_resource_is_requested()
     {
-        $this->call('GET', '/api/sobs/100');
+        $this->request('GET', '/api/sobs/100');
 
         $this->assertResponseStatus(404);
     }

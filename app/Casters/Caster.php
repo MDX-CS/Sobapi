@@ -3,9 +3,7 @@
 namespace App\Casters;
 
 use Closure;
-use App\Casters\CastBuilder;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Database\Eloquent\Collection;
 
 abstract class Caster

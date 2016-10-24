@@ -6,7 +6,6 @@ use App\Models\Sob;
 use App\Casters\SobCaster;
 use App\Filters\SobFilter;
 use App\Http\Requests\SobRequest;
-use App\Http\Responder\Responder;
 
 class SobController extends ApiController
 {

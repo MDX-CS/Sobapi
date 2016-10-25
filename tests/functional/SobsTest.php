@@ -9,7 +9,6 @@ class SobsTest extends TestCase
 {
     use DatabaseMigrations,
         DatabaseTransactions,
-        GeneratesAuthTokens,
         MakesAuthorizedJsonRequests;
 
     protected $sobs;

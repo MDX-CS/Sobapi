@@ -15,13 +15,13 @@ class Sob extends Model
      * @var array
      */
     protected $fillable = [
-        'sob',
+        'name',
         'url',
         'level_id',
         'topic_id',
         'expected_start_date',
         'expected_completion_date',
-        'sob_notes',
+        'description',
     ];
 
     /**
@@ -35,4 +35,14 @@ class Sob extends Model
         'updated_at',
         'created_at',
     ];
+
+    /**
+     * Specifies the one to many relationship
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function level()
+    {
+        return $this->belongsTo(Level::class);
+    }
 }

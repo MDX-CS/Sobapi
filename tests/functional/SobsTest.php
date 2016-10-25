@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use App\Models\Sob;
+use App\Models\Level;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -18,6 +19,7 @@ class SobsTest extends TestCase
         parent::setUp();
 
         $this->sobs = factory(Sob::class, 10)->create();
+        $this->levels = factory(Level::class, 4)->create();
     }
 
     /** @test */
@@ -59,9 +61,9 @@ class SobsTest extends TestCase
         $count = Sob::all()->count();
 
         $sob = $this->request('POST', '/api/sobs', [
-            'sob' => 'Test sob',
+            'name' => 'Test sob',
             'url' => 'http://test.dev',
-            'level_id' => 1,
+            'level_id' => 2,
             'topic_id' => 1,
             'expected_start_date' => Carbon::now(),
             'expected_completion_date' => Carbon::now()->addHours(2),
@@ -71,31 +73,29 @@ class SobsTest extends TestCase
 
         $this->assertResponseStatus(201);
         $this->assertCount(++$count, Sob::all());
-        $this->seeInDatabase('sobs', ['sob' => 'Test sob']);
+        $this->seeInDatabase('sobs', ['name' => 'Test sob']);
     }
 
     /** @test */
     public function it_updates_a_sob()
     {
         $sob = $this->request('PATCH', '/api/sobs/1', [
-            'sob' => 'Another test sob',
+            'name' => 'Another test sob',
             'url' => 'http://test.dev',
         ]);
 
         $sob = Sob::find(1);
 
         $this->assertResponseStatus(202);
-        $this->seeInDatabase('sobs', ['sob' => 'Another test sob']);
+        $this->seeInDatabase('sobs', ['name' => 'Another test sob']);
     }
 
     /** @test */
     public function it_validates_data_when_storing_a_sob()
     {
         $sob = $this->request('POST', '/api/sobs', [
-            'sob' => 'Test sob',
+            'name' => 'Test sob',
             'url' => 'adfasdf',
-            'level_id' => 1,
-            'topic_id' => 1,
             'expected_start_date' => Carbon::now(),
             'expected_completion_date' => Carbon::now()->addHours(2),
         ]);
@@ -107,7 +107,7 @@ class SobsTest extends TestCase
     public function it_validates_data_when_updating_a_sob()
     {
         $sob = $this->request('PATCH', '/api/sobs/1', [
-            'url' => 'asdfad',
+            'url' => 'asdf',
         ]);
 
         $this->assertResponseStatus(422);

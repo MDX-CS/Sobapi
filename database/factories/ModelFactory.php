@@ -24,12 +24,20 @@ $factory->define(App\Models\User::class, function (Faker\Generator $faker) {
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Sob::class, function (Faker\Generator $faker) {
     return [
-        'sob' => $faker->sentence,
-        'url' => $faker->url,
-        'level_id' => 1,
+        'level_id' => rand(1, 4),
         'topic_id' => 1,
+        'name' => $faker->sentence,
+        'url' => $faker->url,
+        'description' => $faker->paragraph,
         'expected_start_date' => $faker->dateTimeThisYear(),
         'expected_completion_date' => $faker->dateTimeThisYear(),
-        'sob_notes' => $faker->paragraph,
+    ];
+});
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Level::class, function (Faker\Generator $faker) {
+    return [
+        'name' => $faker->word,
+        'slug' => $faker->slug,
     ];
 });

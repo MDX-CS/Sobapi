@@ -2,14 +2,14 @@
 
 namespace App\Filters;
 
-class SobFilter extends Filter
+class LevelFilter extends Filter
 {
     /**
      * Searchable columns.
      *
      * @var array
      */
-    protected $searchable = ['id', 'name', 'description', 'level_id', 'topic_id'];
+    protected $searchable = ['id', 'name'];
 
     /**
      * Orderable columns.
@@ -19,7 +19,5 @@ class SobFilter extends Filter
     protected $orderable = [
         'id' => 'id',
         'name' => 'name',
-        'level' => 'levels.name',
-        'topic' => 'topics.name',
     ];
 }

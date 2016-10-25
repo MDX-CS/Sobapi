@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSobsTable extends Migration
+class CreateLevelsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,10 @@ class CreateSobsTable extends Migration
      */
     public function up()
     {
-        Schema::create('sobs', function (Blueprint $table) {
+        Schema::create('levels', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('level_id');
-            $table->integer('topic_id');
             $table->string('name');
-            $table->string('url');;
-            $table->text('description')->nullable();
-            $table->timestamp('expected_start_date');
-            $table->timestamp('expected_completion_date');
+            $table->string('slug');
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ class CreateSobsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('sobs');
+        Schema::dropIfExists('levels');
     }
 }

@@ -23,13 +23,15 @@ class SobRequest extends FormRequest
      */
     public function rules()
     {
+        $required = $this->method() === 'POST' ? 'required|' : '';
+
         return [
-            'sob' => 'min:5',
-            'url' => 'url|min:5',
-            'level_id' => 'numeric',
-            'topic_id' => 'numeric',
-            'expected_start_date' => 'date',
-            'expected_completion_date' => 'date|after:expected_start_date',
+            'name' => $required . 'min:5',
+            'url' => $required . 'min:5',
+            'level_id' => $required . 'numeric|exists:levels,id',
+            'topic_id' => $required . 'numeric',
+            'expected_start_date' => $required . 'date',
+            'expected_completion_date' => $required . 'date|after:expected_start_date',
         ];
     }
 }

@@ -14,3 +14,7 @@
 Route::resource('sobs', 'SobController', [
     'except' => ['create', 'edit'],
 ]);
+
+Route::resource('levels', 'LevelController', [
+    'except' => ['create', 'edit'],
+]);

@@ -77,7 +77,7 @@ class SobController extends ApiController
                 ->send();
         }
 
-        $sob->update(request()->all());
+        $sob->update($request->all());
 
         return $this->respond()
             ->accepted()

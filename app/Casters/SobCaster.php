@@ -37,6 +37,6 @@ class SobCaster extends Caster
      */
     protected function active(Sob $sob)
     {
-        return true;
+        return $sob->sob;
     }
 }

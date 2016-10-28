@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Lang;
 use Illuminate\Foundation\Auth\RedirectsUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 
@@ -142,9 +140,9 @@ class LoginController extends Controller
     protected function sendFailedLoginResponse(Request $request)
     {
         return redirect()->back()
-            ->withInput($request->only($this->username(), 'remember'))
+            ->withInput($request->only($this->username()))
             ->withErrors([
-                $this->username() => Lang::get('auth.failed'),
+                $this->username() => trans('auth.failed'),
             ]);
     }
 
@@ -182,6 +180,6 @@ class LoginController extends Controller
      */
     protected function guard()
     {
-        return Auth::guard();
+        return auth()->guard();
     }
 }

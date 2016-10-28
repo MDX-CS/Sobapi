@@ -151,6 +151,13 @@ class SobapiUserProvider implements UserProvider
         return new $class;
     }
 
+    /**
+     * Finds an entry on given table.
+     *
+     * @param  string  $type
+     * @param  int  $id
+     * @return \Illuminate\Database\Eloquent\Model
+     */
     protected function find($type, $id)
     {
         return $this->createModel($this->{$type})->newQuery()->where(

@@ -14,15 +14,15 @@ class UsersTableSeeder extends Seeder
         factory(App\Models\Student::class)->create([
             'email' => 'kouks.koch@gmail.com',
             'name' => 'Pavel Koch',
-            'network_name' => 'pk637',
-            'password' => bcrypt('secret'),
+            'network_name' => env('LDAP_USERNAME', 'user'),
+            'password' => bcrypt(env('LDAP_PASSWORD', 'secret')),
         ]);
 
         factory(App\Models\Staff::class)->create([
             'email' => 'kouks@gmail.com',
             'name' => 'Pavel Koch Staff',
-            'network_name' => 'pk637',
-            'password' => bcrypt('secret'),
+            'network_name' => env('LDAP_USERNAME', 'user'),
+            'password' => bcrypt(env('LDAP_PASSWORD', 'secret')),
         ]);
     }
 }

@@ -17,9 +17,9 @@ class CreateSobsTable extends Migration
             $table->increments('id');
             $table->integer('level_id');
             $table->integer('topic_id');
-            $table->string('name');
-            $table->string('url');;
-            $table->text('description')->nullable();
+            $table->string('sob');
+            $table->string('url');
+            $table->text('sob_notes')->nullable();
             $table->timestamp('expected_start_date');
             $table->timestamp('expected_completion_date');
             $table->timestamps();

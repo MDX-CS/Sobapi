@@ -13,10 +13,11 @@ class SobCaster extends Caster
     {
         return [
             'id' => '!type:int',
-            'name',
+            'url',
+            'sob' => 'name',
             'level_id' => '!name:level|type:int',
             'topic_id' => '!name:topic|type:int',
-            'description',
+            'sob_notes' => 'description',
             'expected_start_date',
             'expected_completion_date',
             'created_at',

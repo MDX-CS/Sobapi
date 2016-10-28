@@ -23,7 +23,7 @@ trait PerformsCrudOperations
      */
     public function store()
     {
-        $this->repository->model()->create($this->repository->request()->all());
+        $this->repository->store();
 
         return $this->responder->created()->send();
     }

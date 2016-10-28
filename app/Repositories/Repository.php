@@ -103,4 +103,14 @@ abstract class Repository
     {
         return $this->model->find($id);
     }
+
+    /**
+     * Stores the request data onto assigned database table.
+     *
+     * @return bool
+     */
+    public function store()
+    {
+        return $this->model->create($this->request->all());
+    }
 }

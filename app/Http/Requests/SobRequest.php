@@ -26,9 +26,9 @@ class SobRequest extends FormRequest
         $required = $this->method() === 'POST' ? 'required|' : '';
 
         return [
-            'name' => $required.'min:5',
-            'url' => $required.'min:5',
-            'level_id' => $required.'numeric|exists:levels,id',
+            'sob' => $required.'min:5',
+            'url' => $required.'min:5|url',
+            'level_id' => $required.'numeric',
             'topic_id' => $required.'numeric',
             'expected_start_date' => $required.'date',
             'expected_completion_date' => $required.'date|after:expected_start_date',

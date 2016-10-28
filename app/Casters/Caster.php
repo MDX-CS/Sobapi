@@ -44,7 +44,7 @@ abstract class Caster
      * Casts collection fields.
      *
      * @param  mixed  $model
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return array
      */
     public function cast($model)
     {

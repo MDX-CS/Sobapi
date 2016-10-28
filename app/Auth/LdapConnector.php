@@ -38,7 +38,7 @@ class LdapConnector
             return false;
         }
 
-        $username = config('services.ldap.prefix') . $credentials[$this->username];
+        $username = config('services.ldap.prefix').$credentials[$this->username];
 
         try {
             ldap_bind($conn, $username, $credentials['password']);

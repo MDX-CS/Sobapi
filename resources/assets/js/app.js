@@ -28,6 +28,12 @@ Vue.component(
   require('./components/passport/PersonalAccessTokens.vue')
 );
 
+Vue.component(
+  'sobs',
+  require('./components/Sobs.vue')
+);
+
+
 const app = new Vue({
   el: '#app'
 });

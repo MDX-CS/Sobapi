@@ -35,4 +35,10 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'ldap' => [
+        'host' => env('LDAP_HOST'),
+        'port' => env('LDAP_PORT'),
+        'prefix' => env('LDAP_PREFIX'),
+    ],
+
 ];

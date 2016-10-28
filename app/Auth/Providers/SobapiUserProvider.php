@@ -61,11 +61,11 @@ class SobapiUserProvider implements UserProvider
      */
     public function retrieveById($identifier)
     {
-        list($type, $id) = $identifier;
+        if ($student = $this->find('student', $identifier)) {
+            return $student;
+        }
 
-        return $this->createModel(
-            $this->{$type}
-        )->newQuery()->find($id);
+        return $this->find('staff', $identifier);
     }
 
     /**
@@ -149,5 +149,12 @@ class SobapiUserProvider implements UserProvider
         $class = '\\'.ltrim($model, '\\');
 
         return new $class;
+    }
+
+    protected function find($type, $id)
+    {
+        return $this->createModel($this->{$type})->newQuery()->where(
+            $this->createModel($this->{$type})->getKeyName(), $id
+        )->first();
     }
 }

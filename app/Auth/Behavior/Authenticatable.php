@@ -21,9 +21,7 @@ trait Authenticatable
      */
     public function getAuthIdentifier()
     {
-        $type = strtolower(substr(strrchr(get_class($this), '\\'), 1));
-
-        return [$type, $this->getKey()];
+        return $this->getKey();
     }
 
     /**

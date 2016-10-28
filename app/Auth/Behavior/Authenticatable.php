@@ -43,7 +43,7 @@ trait Authenticatable
      */
     public function getRememberToken()
     {
-        return '';
+        //
     }
 
     /**
@@ -54,7 +54,7 @@ trait Authenticatable
      */
     public function setRememberToken($value)
     {
-        return;
+        //
     }
 
     /**
@@ -64,6 +64,6 @@ trait Authenticatable
      */
     public function getRememberTokenName()
     {
-        return '';
+        //
     }
 }

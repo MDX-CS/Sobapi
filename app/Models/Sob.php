@@ -37,7 +37,7 @@ class Sob extends Model
     ];
 
     /**
-     * Specifies the one to many relationship
+     * Specifies the one to many relationship.
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */

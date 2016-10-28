@@ -17,7 +17,7 @@ class Level extends Model
     protected $fillable = ['name', 'slug'];
 
     /**
-     * Specifies the one to many relationship
+     * Specifies the one to many relationship.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

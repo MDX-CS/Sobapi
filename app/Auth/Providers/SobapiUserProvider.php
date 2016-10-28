@@ -77,7 +77,7 @@ class SobapiUserProvider implements UserProvider
      */
     public function retrieveByToken($identifier, $token)
     {
-        return null;
+        //
     }
 
     /**
@@ -89,7 +89,7 @@ class SobapiUserProvider implements UserProvider
      */
     public function updateRememberToken(Authenticatable $user, $token)
     {
-        return;
+        //
     }
 
     /**

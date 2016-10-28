@@ -2,8 +2,6 @@
 
 namespace App\Casters;
 
-use App\Models\Sob;
-
 class SobCaster extends Caster
 {
     /**

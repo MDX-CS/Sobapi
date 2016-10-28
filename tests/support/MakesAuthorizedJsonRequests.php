@@ -48,7 +48,7 @@ trait MakesAuthorizedJsonRequests
             return $this->token;
         }
 
-        $user = factory(App\Models\User::class)->create();
+        $user = factory(App\Models\Staff::class)->create();
 
         Artisan::call('passport:install');
 

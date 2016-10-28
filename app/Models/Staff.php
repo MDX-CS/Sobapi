@@ -2,15 +2,7 @@
 
 namespace App\Models;
 
-use Laravel\Passport\HasApiTokens;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-
-class Staff extends Authenticatable
+class Staff extends User
 {
-    protected $primaryKey = 'network_name';
-
-    public $incrementing = false;
-
-    use HasApiTokens, Notifiable;
+    //
 }

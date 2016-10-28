@@ -12,8 +12,14 @@ This app provides api backend for the Middlesex' Sobmonitor app. It is a Laravel
 
 ## Features
 
-To be supplied ASAP.
+### For students
 
-## Consumint the API
+Viewing sobs, filtering them, viewing observed.
 
-To be supplied ASAP.
+### For staff
+
+Sob management based on assigned permissions.
+
+## Consuming the API
+
+Tutorial and examples will be supplied soon.

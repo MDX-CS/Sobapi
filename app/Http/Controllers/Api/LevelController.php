@@ -20,10 +20,7 @@ class LevelController extends ApiController
     {
         $levels = Level::filter($filter)->get();
 
-        return $this->respond()
-            ->ok()
-            ->withData($caster->cast($levels))
-            ->send();
+        return $this->respond()->ok()->withData($caster->cast($levels))->send();
     }
 
     /**
@@ -36,9 +33,7 @@ class LevelController extends ApiController
     {
         Level::create($request->all());
 
-        return $this->respond()
-            ->created()
-            ->send();
+        return $this->respond()->created()->send();
     }
 
     /**
@@ -51,15 +46,10 @@ class LevelController extends ApiController
     public function show(LevelCaster $caster, Level $level = null)
     {
         if (! $level->exists) {
-            return $this->respond()
-                ->notFound()
-                ->send();
+            return $this->respond()->notFound()->send();
         }
 
-        return $this->respond()
-            ->ok()
-            ->withData($caster->cast($level))
-            ->send();
+        return $this->respond()->ok()->withData($caster->cast($level))->send();
     }
 
     /**
@@ -72,16 +62,12 @@ class LevelController extends ApiController
     public function update(LevelRequest $request, Level $level = null)
     {
         if (! $level->exists) {
-            return $this->respond()
-                ->notFound()
-                ->send();
+            return $this->respond()->notFound()->send();
         }
 
         $level->update($request->all());
 
-        return $this->respond()
-            ->accepted()
-            ->send();
+        return $this->respond()->accepted()->send();
     }
 
     /**
@@ -93,15 +79,11 @@ class LevelController extends ApiController
     public function destroy(Level $level = null)
     {
         if (! $level->exists) {
-            return $this->respond()
-                ->notFound()
-                ->send();
+            return $this->respond()->notFound()->send();
         }
 
         $level->delete();
 
-        return $this->respond()
-            ->deleted()
-            ->send();
+        return $this->respond()->deleted()->send();
     }
 }

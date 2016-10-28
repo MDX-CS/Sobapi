@@ -1,3 +1,5 @@
+window._ = require('lodash');
+
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
  * for JavaScript based Bootstrap features such as modals and tabs. This
@@ -22,7 +24,6 @@ require('vue-resource');
 
 window.Sobapi = {
   csrfToken: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
-  apiToken: document.querySelector('meta[name="api-token"]').getAttribute('content'),
 };
 
 /**
@@ -33,7 +34,6 @@ window.Sobapi = {
 
 Vue.http.interceptors.push((request, next) => {
   request.headers.set('X-CSRF-TOKEN', Sobapi.csrfToken);
-  request.headers.set('Authorization', `Bearer ${Sobapi.apiToken}`);
 
   next();
 });

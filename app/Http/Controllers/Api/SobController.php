@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Sob;
+use App\Models\Level;
 use App\Casters\SobCaster;
 use App\Filters\SobFilter;
 use App\Http\Requests\SobRequest;
@@ -20,10 +21,7 @@ class SobController extends ApiController
     {
         $sobs = Sob::filter($filter)->get();
 
-        return $this->respond()
-            ->ok()
-            ->withData($caster->cast($sobs))
-            ->send();
+        return $this->respond()->ok()->withData($caster->cast($sobs))->send();
     }
 
     /**
@@ -36,9 +34,7 @@ class SobController extends ApiController
     {
         Sob::create($request->all());
 
-        return $this->respond()
-            ->created()
-            ->send();
+        return $this->respond()->created()->send();
     }
 
     /**
@@ -51,15 +47,10 @@ class SobController extends ApiController
     public function show(SobCaster $caster, Sob $sob = null)
     {
         if (! $sob->exists) {
-            return $this->respond()
-                ->notFound()
-                ->send();
+            return $this->respond()->notFound()->send();
         }
 
-        return $this->respond()
-            ->ok()
-            ->withData($caster->cast($sob))
-            ->send();
+        return $this->respond()->ok()->withData($caster->cast($sob))->send();
     }
 
     /**
@@ -69,19 +60,22 @@ class SobController extends ApiController
      * @param  \App\Models\Sob  $sob
      * @return \Illuminate\Http\Response
      */
-    public function update(SobRequest $request, Sob $sob = null)
-    {
+    public function update(
+        SobRequest $request,
+        Sob $sob = null,
+        Level $level = null
+    ) {
         if (! $sob->exists) {
-            return $this->respond()
-                ->notFound()
-                ->send();
+            return $this->respond()->notFound()->send();
         }
 
-        $sob->update($request->all());
+        if ($level->exists) {
+            $sob->level()->associate($level)->save();
+        } else {
+            $sob->update($request->all());
+        }
 
-        return $this->respond()
-            ->accepted()
-            ->send();
+        return $this->respond()->accepted()->send();
     }
 
     /**
@@ -93,15 +87,11 @@ class SobController extends ApiController
     public function destroy(Sob $sob = null)
     {
         if (! $sob->exists) {
-            return $this->respond()
-                ->notFound()
-                ->send();
+            return $this->respond()->notFound()->send();
         }
 
         $sob->delete();
 
-        return $this->respond()
-            ->deleted()
-            ->send();
+        return $this->respond()->deleted()->send();
     }
 }

@@ -5,7 +5,6 @@ namespace App\Repositories;
 use App\Models\Sob;
 use App\Casters\SobCaster;
 use App\Filters\SobFilter;
-use App\Http\Requests\SobRequest;
 
 class SobRepository extends Repository
 {

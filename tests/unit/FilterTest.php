@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Sob;
+use App\Models\Staff;
+use App\Models\Capability;
 use App\Casters\CastBuilder;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -16,6 +18,12 @@ class FilterTest extends TestCase
     {
         parent::setUp();
 
+        $user = factory(Staff::class)->create();
+        factory(Capability::class, 6)->create()->each(function (Capability $c) use ($user) {
+            $c->users()->attach($user);
+        });
+        auth()->login($user);
+
         $this->sobs = factory(Sob::class, 10)->create();
     }
 
@@ -29,8 +37,8 @@ class FilterTest extends TestCase
 
         $this->assertResponseStatus(200);
 
-        $this->assertEquals($filtered->first()->id, 10);
-        $this->assertEquals($filtered->last()->id, 1);
+        $this->assertEquals($filtered->first()->sob_id, 10);
+        $this->assertEquals($filtered->last()->sob_id, 1);
     }
 
     /** @test */
@@ -54,7 +62,7 @@ class TestFilter extends App\Filters\Filter
     protected $searchable = ['sob'];
 
     protected $orderable = [
-        'id' => 'id',
+        'id' => 'sob_id',
         'sob' => 'sob',
     ];
 }

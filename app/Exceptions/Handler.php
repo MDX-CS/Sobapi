@@ -3,24 +3,49 @@
 namespace App\Exceptions;
 
 use Exception;
+use App\Http\Responder\Responder;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Contracts\Container\Container;
+use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
 {
+    /**
+     * The responder instance.
+     *
+     * @var \App\Http\Responder\Responder
+     */
+    protected $responder;
+
     /**
      * A list of the exception types that should not be reported.
      *
      * @var array
      */
     protected $dontReport = [
-        \Illuminate\Auth\AuthenticationException::class,
         \Illuminate\Auth\Access\AuthorizationException::class,
-        \Symfony\Component\HttpKernel\Exception\HttpException::class,
+        \Illuminate\Auth\AuthenticationException::class,
         \Illuminate\Database\Eloquent\ModelNotFoundException::class,
         \Illuminate\Session\TokenMismatchException::class,
         \Illuminate\Validation\ValidationException::class,
+        \League\OAuth2\Server\Exception\OAuthServerException::class,
+        \Symfony\Component\HttpKernel\Exception\HttpException::class,
     ];
+
+    /**
+     * Class constructor.
+     *
+     * @param  \Illuminate\Contracts\Container\Container  $container
+     * @param  \App\Http\Responder\Responder  $responder
+     * @return void
+     */
+    public function __construct(Container $container, Responder $responder)
+    {
+        $this->responder = $responder;
+
+        parent::__construct($container);
+    }
 
     /**
      * Report or log an exception.
@@ -44,6 +69,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof AuthorizationException) {
+            return $this->responder->unauthorized()->send();
+        }
+
         return parent::render($request, $exception);
     }
 

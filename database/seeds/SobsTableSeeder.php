@@ -11,6 +11,11 @@ class SobsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Sob::class, 10)->create();
+        factory(App\Models\Sob::class, 5)->create()->each(function (App\Models\Sob $sob) {
+            $sob->students()->attach(env('LDAP_USERNAME', 'user'));
+            $sob->save();
+        });
+
+        factory(App\Models\Sob::class, 5)->create();
     }
 }

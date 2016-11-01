@@ -2,6 +2,8 @@
 
 use Carbon\Carbon;
 use App\Models\Sob;
+use App\Models\Staff;
+use App\Models\Capability;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -15,6 +17,12 @@ class CrudTest extends TestCase
     public function setUp()
     {
         parent::setUp();
+
+        $user = factory(Staff::class)->create();
+        factory(Capability::class, 6)->create()->each(function (Capability $c) use ($user) {
+            $c->users()->attach($user);
+        });
+        auth()->login($user);
 
         $this->sobs = factory(Sob::class, 10)->create();
     }
@@ -120,5 +128,19 @@ class CrudTest extends TestCase
         $this->request('PATCH', '/api/sobs/100');
 
         $this->assertResponseStatus(404);
+    }
+
+    /** @test */
+    public function it_throws_403_when_user_is_not_authorized()
+    {
+        auth()->logout();
+
+        $this->request('PATCH', '/api/sobs/10', ['url' => 'test.dev']);
+
+        $this->assertResponseStatus(403);
+
+        $this->request('POST', '/api/sobs');
+
+        $this->assertResponseStatus(403);
     }
 }

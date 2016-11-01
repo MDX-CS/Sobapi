@@ -12,7 +12,7 @@ class SobCaster extends Caster
     protected function castRules()
     {
         return [
-            'id' => '!type:int',
+            'sob_id' => '!name:id|type:int',
             'url',
             'sob' => 'name',
             'level_id' => '!name:level|type:int',
@@ -20,8 +20,6 @@ class SobCaster extends Caster
             'sob_notes' => 'description',
             'expected_start_date',
             'expected_completion_date',
-            'created_at',
-            'updated_at',
         ];
     }
 }

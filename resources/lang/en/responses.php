@@ -25,6 +25,10 @@ return [
         'message' => 'Your access token is not valid.',
     ],
 
+    'unauthorized' => [
+        'message' => 'You are not authorized to perform this action.',
+    ],
+
     'not_found' => [
         'message' => 'Desired resource was not found.',
     ],

@@ -14,15 +14,14 @@ class CreateSobsTable extends Migration
     public function up()
     {
         Schema::create('sobs', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('sob_id');
             $table->integer('level_id');
             $table->integer('topic_id');
             $table->string('sob');
             $table->string('url');
-            $table->text('sob_notes')->nullable();
             $table->timestamp('expected_start_date');
             $table->timestamp('expected_completion_date');
-            $table->timestamps();
+            $table->text('sob_notes')->nullable();
         });
     }
 

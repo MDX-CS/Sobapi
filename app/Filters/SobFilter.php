@@ -9,7 +9,7 @@ class SobFilter extends Filter
      *
      * @var array
      */
-    protected $searchable = ['id', 'sob', 'sob_notes', 'level_id', 'topic_id'];
+    protected $searchable = ['sob_id', 'sob', 'sob_notes', 'level_id', 'topic_id'];
 
     /**
      * Orderable columns.
@@ -17,7 +17,7 @@ class SobFilter extends Filter
      * @var array
      */
     protected $orderable = [
-        'id' => 'id',
+        'id' => 'sob_id',
         'sob' => 'sob',
     ];
 }

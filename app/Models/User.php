@@ -11,6 +11,13 @@ abstract class User extends Authenticatable
     use HasApiTokens, Notifiable;
 
     /**
+     * Removes timestamps.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
      * The primary key column.
      *
      * @var string
@@ -23,4 +30,21 @@ abstract class User extends Authenticatable
      * @var bool
      */
     public $incrementing = false;
+
+    /**
+     * Hidden fields.
+     *
+     * @var array
+     */
+    protected $hidden = ['password'];
+
+    /**
+     * Returns the type of the user.
+     *
+     * @return string
+     */
+    public function getTypeAttribute()
+    {
+        return strtolower(class_basename($this));
+    }
 }

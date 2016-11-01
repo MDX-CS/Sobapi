@@ -5,12 +5,9 @@ namespace App\Http\Controllers\Api;
 use App\Repositories\Repository;
 use App\Http\Responder\Responder;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\Behavior\PerformsCrudOperations;
 
 abstract class ApiController extends Controller
 {
-    use PerformsCrudOperations;
-
     /**
      * Responder object.
      *

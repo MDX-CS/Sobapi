@@ -11,6 +11,8 @@ trait PerformsCrudOperations
      */
     public function index()
     {
+        $this->authorize('view', $this->repository->modelName());
+
         $resources = $this->repository->filter()->get();
 
         return $this->responder->ok()->withData($this->repository->cast($resources))->send();
@@ -23,6 +25,10 @@ trait PerformsCrudOperations
      */
     public function store()
     {
+        $this->authorize('create', $this->repository->modelName());
+
+        $this->validate(request(), $this->repository->storeRules());
+
         $this->repository->store();
 
         return $this->responder->created()->send();
@@ -36,6 +42,8 @@ trait PerformsCrudOperations
      */
     public function show($id)
     {
+        $this->authorize('view', $this->repository->modelName());
+
         $resource = $this->repository->find($id);
 
         if (! $resource) {
@@ -53,13 +61,17 @@ trait PerformsCrudOperations
      */
     public function update($id)
     {
+        $this->authorize('update', $this->repository->modelName());
+
+        $this->validate(request(), $this->repository->updateRules());
+
         $resource = $this->repository->find($id);
 
         if (! $resource) {
             return $this->responder->notFound()->send();
         }
 
-        $resource->update($this->repository->request()->all());
+        $resource->update(request()->all());
 
         return $this->responder->accepted()->send();
     }
@@ -72,6 +84,8 @@ trait PerformsCrudOperations
      */
     public function destroy($id)
     {
+        $this->authorize('delete', $this->repository->modelName());
+
         $resource = $this->repository->find($id);
 
         if (! $resource) {

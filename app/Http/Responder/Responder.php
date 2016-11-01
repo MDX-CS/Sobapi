@@ -89,6 +89,20 @@ class Responder
     }
 
     /**
+     * Sets the status code to 403 and updates the message.
+     *
+     * @return self
+     */
+    public function unauthorized()
+    {
+        $this->status(403);
+
+        $this->json['error'] = trans('responses.unauthorized');
+
+        return $this;
+    }
+
+    /**
      * Sets the status code to 404 and updates the message.
      *
      * @return self

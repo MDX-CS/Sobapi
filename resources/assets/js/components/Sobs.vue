@@ -33,7 +33,7 @@
           <tbody>
             <tr v-for="sob in sobs">
               <td>{{ sob.id }}</td>
-              <td>{{ sob.name }}</td>
+              <td>{{ sob.sob }}</td>
               <td>{{ sob.description }}</td>
               <td><a class="action-link" @click="edit(sob)">Edit</a></td>
               <td><a class="action-link text-danger" @click="destroy(sob)">Delete</a></td>
@@ -70,7 +70,7 @@
                 <label class="col-md-3 control-label">Name</label>
 
                 <div class="col-md-7">
-                  <input type="text" class="form-control" @keyup.enter="store" v-model="create.data.name">
+                  <input type="text" class="form-control" @keyup.enter="store" v-model="create.data.sob">
                 </div>
               </div>
 

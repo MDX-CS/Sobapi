@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -14,20 +16,29 @@
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Staff::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
         'network_name' => $faker->username,
-        'email' => $faker->unique()->safeEmail,
+        'firstname' => $faker->firstname,
+        'lastname' => $faker->lastname,
         'password' => bcrypt('secret'),
+        'enc_id' => str_random(20),
+        'email' => $faker->unique()->safeEmail,
     ];
 });
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 $factory->define(App\Models\Student::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'staff_id' => 1,
         'network_name' => $faker->username,
+        'firstname' => $faker->firstname,
+        'lastname' => $faker->lastname,
         'email' => $faker->unique()->safeEmail,
         'password' => bcrypt('secret'),
+        'student_number' => $faker->postcode,
+        'student_status' => 1,
+        'enc_id' => str_random(20),
+        'last_login' => Carbon::now(),
+        'last_activity' => Carbon::now(),
     ];
 });
 
@@ -41,5 +52,12 @@ $factory->define(App\Models\Sob::class, function (Faker\Generator $faker) {
         'sob_notes' => $faker->paragraph,
         'expected_start_date' => $faker->dateTimeThisYear(),
         'expected_completion_date' => $faker->dateTimeThisYear(),
+    ];
+});
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Capability::class, function (Faker\Generator $faker) {
+    return [
+        'capability_description' => $faker->sentence,
     ];
 });

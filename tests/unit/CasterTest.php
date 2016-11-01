@@ -59,7 +59,7 @@ class TestCaster extends App\Casters\Caster
                 return 1;
             },
             'active' => '@active',
-            'id' => '!name:test2|type:bool',
+            'sob_id' => '!name:test2|type:bool',
         ];
     }
 

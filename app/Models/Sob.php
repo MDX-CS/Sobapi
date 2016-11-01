@@ -10,6 +10,20 @@ class Sob extends Model
     use Filterable;
 
     /**
+     * Removes timestamps.
+     *
+     * @var bool
+     */
+    public $timestamps = false;
+
+    /**
+     * The primary key column.
+     *
+     * @var string
+     */
+    protected $primaryKey = 'sob_id';
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -35,4 +49,19 @@ class Sob extends Model
         'updated_at',
         'created_at',
     ];
+
+    /**
+     * Specifies the belongs to many relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function students()
+    {
+        return $this->belongsToMany(Student::class, 'sob_observations', 'sob_id');
+    }
+
+    public function toggleFor(Student $student)
+    {
+        $this->students()->toggle($student);
+    }
 }

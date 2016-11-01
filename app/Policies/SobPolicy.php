@@ -11,7 +11,7 @@ class SobPolicy
     use HandlesAuthorization, Manageable;
 
     /**
-     * Manageable methods
+     * Manageable methods.
      *
      * @var array
      */

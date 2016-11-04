@@ -3,7 +3,6 @@
 namespace App\Policies;
 
 use App\Models\User;
-use App\Models\Student;
 use App\Policies\Behavior\Manageable;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -39,15 +38,4 @@ class LessonPolicy
     {
         return true;
     }
-
-    /**
-     * Determine whether the user can observe lessons.
-     *
-     * @param  \App\Models\User  $user
-     * @return bool
-     */
-    // public function observe(User $user)
-    // {
-    //     return $user->capabilities->contains(3);
-    // }
 }

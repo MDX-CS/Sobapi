@@ -36,7 +36,7 @@ class StudentSobController extends ApiController
 
         $this->authorize('view-observed', [
             $this->repository->modelName(),
-            $student
+            $student,
         ]);
 
         return $this->responder

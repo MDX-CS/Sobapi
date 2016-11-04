@@ -12,7 +12,7 @@ class LessonCaster extends Caster
     protected function castRules()
     {
         return [
-            'crn_id' => 'id'
+            'crn_id' => 'id',
         ];
     }
 }

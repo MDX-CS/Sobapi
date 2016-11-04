@@ -61,3 +61,16 @@ $factory->define(App\Models\Capability::class, function (Faker\Generator $faker)
         'capability_description' => $faker->sentence,
     ];
 });
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Lesson::class, function (Faker\Generator $faker) {
+    return [
+        'crn' => $faker->numberBetween(1000, 10000),
+        'oldcrn' => $faker->numberBetween(1000, 10000),
+        'codetype' => $faker->word,
+        'day' => $faker->dayOfWeek,
+        'room' => $faker->city,
+        'starttime' => $faker->time(),
+        'endtime' => $faker->time(),
+    ];
+});

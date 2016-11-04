@@ -34,6 +34,11 @@ class StudentSobController extends ApiController
             return $this->responder->notFound()->send();
         }
 
+        $this->authorize('view-observed', [
+            $this->repository->modelName(),
+            $student
+        ]);
+
         return $this->responder
             ->ok()
             ->withData($this->repository->cast($student->sobs))
@@ -41,7 +46,7 @@ class StudentSobController extends ApiController
     }
 
     /**
-     * Toggles the observations status of a sob for given student.
+     * Observes a sob for given student.
      *
      * @param  \App\Models\Student  $student
      * @param  \App\Models\Sob  $sob
@@ -49,11 +54,33 @@ class StudentSobController extends ApiController
      */
     public function store(Student $student = null, Sob $sob = null)
     {
+        $this->authorize('observe', $this->repository->modelName());
+
         if (! $sob->exists || ! $student->exists) {
             return $this->responder->notFound()->send();
         }
 
-        $sob->toggleFor($student);
+        $student->complete($sob);
+
+        return $this->responder->created()->send();
+    }
+
+    /**
+     * Unobserves a sob for given student.
+     *
+     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Sob  $sob
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(Student $student = null, Sob $sob = null)
+    {
+        $this->authorize('observe', $this->repository->modelName());
+
+        if (! $sob->exists || ! $student->exists) {
+            return $this->responder->notFound()->send();
+        }
+
+        $stdent->unobserve($sob);
 
         return $this->responder->created()->send();
     }

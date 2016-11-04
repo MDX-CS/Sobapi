@@ -26,5 +26,8 @@ class UsersTableSeeder extends Seeder
             'network_name' => env('LDAP_USERNAME', 'user'),
             'password' => bcrypt(env('LDAP_PASSWORD', 'secret')),
         ]);
+
+        factory(App\Models\Staff::class, 5)->create();
+        factory(App\Models\Student::class, 5)->create();
     }
 }

@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Filters;
+
+class {resource}Filter extends Filter
+{
+    /**
+     * Searchable columns.
+     *
+     * @var array
+     */
+    protected $searchable = [
+        //
+    ];
+
+    /**
+     * Orderable columns.
+     *
+     * @var array
+     */
+    protected $orderable = [
+        //
+    ];
+}

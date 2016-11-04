@@ -59,9 +59,4 @@ class Sob extends Model
     {
         return $this->belongsToMany(Student::class, 'sob_observations', 'sob_id');
     }
-
-    public function toggleFor(Student $student)
-    {
-        $this->students()->toggle($student);
-    }
 }

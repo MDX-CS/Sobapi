@@ -35,6 +35,40 @@ class Student extends User
     }
 
     /**
+     * Specifies the belongs to many relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function lessons()
+    {
+        return $this->belongsToMany(Lesson::class, 'attendance', 'studid', 'crn');
+    }
+
+    /**
+     * Observes given sob for this student. Not that we
+     * HAVE to stick with the word 'comlpete' since 'observed'
+     * is reserved
+     *
+     * @param  \App\Models\Sob  $sob
+     * @return void
+     */
+    public function complete(Sob $sob)
+    {
+        $this->sobs()->attach($sob);
+    }
+
+    /**
+     * Unbserves given sob for this student.
+     *
+     * @param  \App\Models\Sob  $sob
+     * @return void
+     */
+    public function unobserve(Sob $sob)
+    {
+        $this->sobs()->detach($sob);
+    }
+
+    /**
      * Just need to implement this function here, since student has no
      * capabilities, but I still need to call this function not knowing
      * whether it is a Student or a Staff intance - bad design of the DB.

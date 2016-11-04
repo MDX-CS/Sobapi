@@ -47,7 +47,7 @@ class Student extends User
     /**
      * Observes given sob for this student. Not that we
      * HAVE to stick with the word 'comlpete' since 'observed'
-     * is reserved
+     * is reserved.
      *
      * @param  \App\Models\Sob  $sob
      * @return void

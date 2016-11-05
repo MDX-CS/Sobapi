@@ -51,7 +51,7 @@ class SobCaster extends Caster
             'url',
             'sob' => 'name',
             'level' => function (Sob $sob) {
-                return $this->levelCaster->cast($sob->leve);
+                return $this->levelCaster->cast($sob->level);
             },
             'topic' => function (Sob $sob) {
                 return $this->topicCaster->cast($sob->topic);

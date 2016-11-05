@@ -25,7 +25,6 @@ class StudentLessonController extends Controller
      * Show all attendance of given student.
      *
      * @param  \App\Models\Student  $student
-     * @param  \App\Models\Lesson  $sob
      * @return \Illuminate\Http\Response
      */
     public function index(Student $student = null)

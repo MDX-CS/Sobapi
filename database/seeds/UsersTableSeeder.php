@@ -11,13 +11,13 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Student::class)->create([
-            'email' => 'kouks.koch@gmail.com',
-            'firstname' => 'Pavel',
-            'lastname' => 'Koch',
-            'network_name' => env('LDAP_USERNAME', 'user'),
-            'password' => bcrypt(env('LDAP_PASSWORD', 'secret')),
-        ]);
+        // factory(App\Models\Student::class)->create([
+        //     'email' => 'kouks.koch@gmail.com',
+        //     'firstname' => 'Pavel',
+        //     'lastname' => 'Koch',
+        //     'network_name' => env('LDAP_USERNAME', 'user'),
+        //     'password' => bcrypt(env('LDAP_PASSWORD', 'secret')),
+        // ]);
 
         factory(App\Models\Staff::class)->create([
             'email' => 'kouks@gmail.com',

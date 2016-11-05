@@ -82,7 +82,7 @@ class Handler extends ExceptionHandler
             return $this->responder->{$this->responses[get_class($exception)]}()->send();
         }
 
-        if ($request->expectsJson()) {
+        if ($request->expectsJson() && env('APP_ENV') == 'production') {
             return $this->responder->internalError()->send();
         }
 

@@ -74,3 +74,17 @@ $factory->define(App\Models\Lesson::class, function (Faker\Generator $faker) {
         'endtime' => $faker->time(),
     ];
 });
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Level::class, function (Faker\Generator $faker) {
+    return [
+        'level' => $faker->word,
+    ];
+});
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Topic::class, function (Faker\Generator $faker) {
+    return [
+        'topic' => $faker->word,
+    ];
+});

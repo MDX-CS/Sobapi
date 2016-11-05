@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\Sob;
-use App\Models\Student;
+use App\Models\Level;
 use App\Http\Responder\Responder;
 use App\Repositories\SobRepository;
 
-class StudentSobController extends Controller
+class LevelSobController extends Controller
 {
     /**
      * Class constructor.
@@ -22,44 +22,41 @@ class StudentSobController extends Controller
     }
 
     /**
-     * Shows all the sobs assigned to a student.
+     * Show all sobs under given level.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Level  $level
      * @return \Illuminate\Http\Response
      */
-    public function index(Student $student = null)
+    public function index(Level $level = null)
     {
-        if (! $student->exists) {
+        $this->authorize('view', $this->repository->modelName());
+
+        if (! $level->exists) {
             return $this->responder->notFound()->send();
         }
 
-        $this->authorize('view-observed', [
-            $this->repository->modelName(),
-            $student,
-        ]);
-
         return $this->responder
             ->ok()
-            ->withData($this->repository->cast($student->sobs))
+            ->withData($this->repository->cast($level->sobs))
             ->send();
     }
 
     /**
-     * Toggles observation status for the given sob in relation with the given student.
+     * Associates given sob with given level.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Level  $level
      * @param  \App\Models\Sob  $sob
      * @return \Illuminate\Http\Response
      */
-    public function update(Student $student = null, Sob $sob = null)
+    public function update(Level $level = null, Sob $sob = null)
     {
-        $this->authorize('observe', $this->repository->modelName());
+        $this->authorize('update', $this->repository->modelName());
 
-        if (! $sob->exists || ! $student->exists) {
+        if (! $sob->exists || ! $level->exists) {
             return $this->responder->notFound()->send();
         }
 
-        $student->toggleObservation($sob);
+        $level->reassign($sob);
 
         return $this->responder->accepted()->send();
     }

@@ -46,8 +46,6 @@ class Sob extends Model
     protected $dates = [
         'expected_start_date',
         'expected_completion_date',
-        'updated_at',
-        'created_at',
     ];
 
     /**
@@ -58,5 +56,25 @@ class Sob extends Model
     public function students()
     {
         return $this->belongsToMany(Student::class, 'sob_observations', 'sob_id');
+    }
+
+    /**
+     * Specifies the belongs to relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function level()
+    {
+        return $this->belongsTo(Level::class);
+    }
+
+    /**
+     * Specifies the belongs to relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function topic()
+    {
+        return $this->belongsTo(Topic::class);
     }
 }

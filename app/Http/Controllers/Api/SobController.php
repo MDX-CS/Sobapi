@@ -6,7 +6,7 @@ use App\Http\Responder\Responder;
 use App\Repositories\SobRepository;
 use App\Http\Controllers\Behavior\PerformsCrudOperations;
 
-class SobController extends ApiController
+class SobController extends Controller
 {
     use PerformsCrudOperations;
 

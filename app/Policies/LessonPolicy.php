@@ -3,6 +3,7 @@
 namespace App\Policies;
 
 use App\Models\User;
+use App\Models\Student;
 use App\Policies\Behavior\Manageable;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -29,13 +30,24 @@ class LessonPolicy
     }
 
     /**
-     * Determine whether the user can manage lessons.
+     * Determine whether the user can attend lessons.
      *
      * @param  \App\Models\User  $user
      * @return bool
      */
-    public function check(User $user)
+    public function attend(User $user)
     {
-        return true;
+        return $user->capabilities->contains(6);
+    }
+
+    /**
+     * Determine whether the user can check its own attendance.
+     *
+     * @param  \App\Models\User  $user
+     * @return bool
+     */
+    public function viewAttended(User $user, Student $student)
+    {
+        return $user->getKey() === $student->getKey() || $user->type === 'staff';
     }
 }

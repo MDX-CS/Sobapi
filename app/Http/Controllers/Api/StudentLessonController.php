@@ -2,30 +2,30 @@
 
 namespace App\Http\Controllers\Api;
 
-use App\Models\Sob;
+use App\Models\Lesson;
 use App\Models\Student;
 use App\Http\Responder\Responder;
-use App\Repositories\SobRepository;
+use App\Repositories\LessonRepository;
 
-class StudentSobController extends Controller
+class StudentLessonController extends Controller
 {
     /**
      * Class constructor.
      *
-     * @param  \App\Repositories\SobRepository  $respository
+     * @param  \App\Repositories\LessonRepository  $respository
      * @param  \App\Http\Responder\Responder  $responder
      * @return void
      */
-    public function __construct(SobRepository $repository, Responder $responder)
+    public function __construct(LessonRepository $repository, Responder $responder)
     {
         parent::__construct($repository, $responder);
     }
 
     /**
-     * Shows all the sobs assigned to a student.
+     * Show all attendance of given student.
      *
      * @param  \App\Models\Student  $student
-     * @param  \App\Models\Sob  $sob
+     * @param  \App\Models\Lesson  $sob
      * @return \Illuminate\Http\Response
      */
     public function index(Student $student = null)
@@ -34,33 +34,33 @@ class StudentSobController extends Controller
             return $this->responder->notFound()->send();
         }
 
-        $this->authorize('view-observed', [
+        $this->authorize('view-attended', [
             $this->repository->modelName(),
             $student,
         ]);
 
         return $this->responder
             ->ok()
-            ->withData($this->repository->cast($student->sobs))
+            ->withData($this->repository->cast($student->lessons))
             ->send();
     }
 
     /**
-     * Toggles observation status for the given sob in relation with the given student.
+     * Toggles attendance status for the given lesson in relation with the given student.
      *
      * @param  \App\Models\Student  $student
-     * @param  \App\Models\Sob  $sob
+     * @param  \App\Models\Lesson  $lesson
      * @return \Illuminate\Http\Response
      */
-    public function update(Student $student = null, Sob $sob = null)
+    public function update(Student $student = null, Lesson $lesson = null)
     {
-        $this->authorize('observe', $this->repository->modelName());
+        $this->authorize('attend', $this->repository->modelName());
 
-        if (! $sob->exists || ! $student->exists) {
+        if (! $lesson->exists || ! $student->exists) {
             return $this->responder->notFound()->send();
         }
 
-        $student->toggleObservation($sob);
+        $student->toggleAttendance($lesson);
 
         return $this->responder->accepted()->send();
     }

@@ -6,7 +6,7 @@ use App\Http\Responder\Responder;
 use App\Repositories\LessonRepository;
 use App\Http\Controllers\Behavior\PerformsCrudOperations;
 
-class LessonController extends ApiController
+class LessonController extends Controller
 {
     use PerformsCrudOperations;
 

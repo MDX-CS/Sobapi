@@ -14,7 +14,7 @@ Route::resource('sobs', 'SobController', [
 ]);
 
 Route::resource('students.sobs', 'StudentSobController', [
-    'only' => ['index', 'update']
+    'only' => ['index', 'update'],
 ]);
 
 /*
@@ -31,5 +31,5 @@ Route::resource('lessons', 'LessonController', [
 ]);
 
 Route::resource('students.lessons', 'StudentLessonController', [
-    'only' => ['index', 'update']
+    'only' => ['index', 'update'],
 ]);

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\Sob;
 use App\Models\Behavior\Filterable;
 use Illuminate\Database\Eloquent\Model;
 
@@ -42,7 +41,7 @@ class Topic extends Model
     }
 
     /**
-     * Assigns this topic to given sob
+     * Assigns this topic to given sob.
      *
      * @param  \App\Models\Sob  $sob
      * @return void

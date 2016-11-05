@@ -3,7 +3,6 @@
 namespace App\Casters;
 
 use App\Models\Sob;
-use App\Casters\LevelCaster;
 
 class SobCaster extends Caster
 {
@@ -51,10 +50,10 @@ class SobCaster extends Caster
             'sob_id' => '!name:id|type:int',
             'url',
             'sob' => 'name',
-            'level' => function(Sob $sob) {
-                return $this->levelCaster->cast($sob->level);
+            'level' => function (Sob $sob) {
+                return $this->levelCaster->cast($sob->leve);
             },
-            'topic' => function(Sob $sob) {
+            'topic' => function (Sob $sob) {
                 return $this->topicCaster->cast($sob->topic);
             },
             'sob_notes' => 'description',

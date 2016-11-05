@@ -2,8 +2,6 @@
 
 namespace App\Models;
 
-use App\Casters\LevelCaster;
-use App\Models\Behavior\Castable;
 use App\Models\Behavior\Filterable;
 use Illuminate\Database\Eloquent\Model;
 
@@ -43,7 +41,7 @@ class Level extends Model
     }
 
     /**
-     * Assigns this level to given sob
+     * Assigns this level to given sob.
      *
      * @param  \App\Models\Sob  $sob
      * @return void

@@ -4,9 +4,9 @@ namespace App\Http\Controllers\Api;
 
 use App\Repositories\Repository;
 use App\Http\Responder\Responder;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\Controller as BaseController;
 
-abstract class ApiController extends Controller
+abstract class Controller extends BaseController
 {
     /**
      * Responder object.

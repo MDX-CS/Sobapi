@@ -6,7 +6,6 @@ use Exception;
 use App\Http\Responder\Responder;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Contracts\Container\Container;
-use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
 class Handler extends ExceptionHandler
@@ -24,13 +23,23 @@ class Handler extends ExceptionHandler
      * @var array
      */
     protected $dontReport = [
-        \Illuminate\Auth\Access\AuthorizationException::class,
         \Illuminate\Auth\AuthenticationException::class,
         \Illuminate\Database\Eloquent\ModelNotFoundException::class,
         \Illuminate\Session\TokenMismatchException::class,
-        \Illuminate\Validation\ValidationException::class,
         \League\OAuth2\Server\Exception\OAuthServerException::class,
         \Symfony\Component\HttpKernel\Exception\HttpException::class,
+    ];
+
+    /**
+     * A list of exceptions that should be cast to json.
+     *
+     * @var array
+     */
+    protected $responses = [
+        \Illuminate\Validation\ValidationException::class => 'unprocessable',
+        \Illuminate\Auth\Access\AuthorizationException::class => 'unauthorized',
+        \Symfony\Component\HttpKernel\Exception\NotFoundHttpException::class => 'notFound',
+        \Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException::class => 'notFound',
     ];
 
     /**
@@ -69,8 +78,12 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        if ($exception instanceof AuthorizationException) {
-            return $this->responder->unauthorized()->send();
+        if (array_key_exists(get_class($exception), $this->responses)) {
+            return $this->responder->{$this->responses[get_class($exception)]}()->send();
+        }
+
+        if ($request->expectsJson()) {
+            return $this->responder->internalError()->send();
         }
 
         return parent::render($request, $exception);

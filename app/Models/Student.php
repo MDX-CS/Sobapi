@@ -45,27 +45,25 @@ class Student extends User
     }
 
     /**
-     * Observes given sob for this student. Not that we
-     * HAVE to stick with the word 'comlpete' since 'observed'
-     * is reserved.
+     * Toggles the obsevation status of the given sob in relation with this student.
      *
      * @param  \App\Models\Sob  $sob
      * @return void
      */
-    public function complete(Sob $sob)
+    public function toggleObservation(Sob $sob)
     {
-        $this->sobs()->attach($sob);
+        $this->sobs()->toggle($sob);
     }
 
     /**
-     * Unbserves given sob for this student.
+     * Toggles the attendance status of the given lesson in relation with this student.
      *
-     * @param  \App\Models\Sob  $sob
+     * @param  \App\Models\Lesson  $lesson
      * @return void
      */
-    public function unobserve(Sob $sob)
+    public function toggleAttendance(Lesson $lesson)
     {
-        $this->sobs()->detach($sob);
+        $this->lessons()->toggle($lesson);
     }
 
     /**

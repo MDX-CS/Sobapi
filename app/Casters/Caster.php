@@ -56,7 +56,7 @@ abstract class Caster
         }
 
         if (empty($model)) {
-            return null;
+            return;
         }
 
         // We go through each of the specified cast rules
@@ -88,7 +88,7 @@ abstract class Caster
         // If the value was prefixed with the function sign, which
         // is '@' by default, call desired method on this class.
         if (is_string($desired) && strpos($desired, $this->functionSign) !== false) {
-            return $transformed[$old] = call_user_func([$this, substr($desired, 1)], $model);;
+            return $transformed[$old] = call_user_func([$this, substr($desired, 1)], $model);
         }
 
         // If it was prefixed with the query sign, which

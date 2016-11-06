@@ -57,7 +57,7 @@ class FilterTest extends TestCase
     }
 }
 
-class TestFilter extends App\Filters\Filter
+class TestFilter extends Koch\Filters\Filter
 {
     protected $searchable = ['sob'];
 

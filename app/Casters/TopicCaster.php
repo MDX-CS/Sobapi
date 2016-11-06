@@ -2,6 +2,8 @@
 
 namespace App\Casters;
 
+use Koch\Casters\Caster;
+
 class TopicCaster extends Caster
 {
     /**

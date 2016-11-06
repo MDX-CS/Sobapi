@@ -2,8 +2,8 @@
 
 namespace App\Repositories;
 
-use App\Casters\Caster;
-use App\Filters\Filter;
+use Koch\Casters\Contracts\Caster;
+use Koch\Filters\Contracts\Filter;
 use Illuminate\Database\Eloquent\Model;
 
 abstract class Repository
@@ -11,14 +11,14 @@ abstract class Repository
     /**
      * Resource caster.
      *
-     * @var \App\Casters\Caster
+     * @var \Koch\Filters\Contracts\Caster
      */
     protected $caster;
 
     /**
      * Resource filter.
      *
-     * @var \App\Filters\Filter
+     * @var \Koch\Filters\Contracts\Filter
      */
     protected $filter;
 
@@ -32,8 +32,8 @@ abstract class Repository
     /**
      * Class constructor.
      *
-     * @param  \App\Casters\Caster  $caster
-     * @param  \App\Filters\Filter  $filter
+     * @param  \Koch\Filters\Contracts\Caster  $caster
+     * @param  \Koch\Filters\Contracts\Filter  $filter
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return void
      */

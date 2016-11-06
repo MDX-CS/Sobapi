@@ -3,6 +3,7 @@
 namespace App\Casters;
 
 use App\Models\Sob;
+use Koch\Casters\Caster;
 
 class SobCaster extends Caster
 {
@@ -23,15 +24,12 @@ class SobCaster extends Caster
     /**
      * Class constructor.
      *
-     * @param  \App\Casters\CastBuilder  $builder
      * @param  \App\Casters\LevelCaster  $levelCaster
      * @param  \App\Casters\TopicCaster  $topicCaster
      * @return void
      */
-    public function __construct(CastBuilder $builder, LevelCaster $levelCaster, TopicCaster $topicCaster)
+    public function __construct(LevelCaster $levelCaster, TopicCaster $topicCaster)
     {
-        parent::__construct($builder);
-
         $this->levelCaster = $levelCaster;
         $this->topicCaster = $topicCaster;
     }

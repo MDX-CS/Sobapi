@@ -51,7 +51,7 @@ class FilterTest extends TestCase
         $this->assertResponseStatus(200);
 
         foreach ($filtered as $sob) {
-            $this->assertContains('a', $sob->sob);
+            $this->assertContains('a', strtolower($sob->sob));
         }
     }
 }

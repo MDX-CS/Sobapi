@@ -3,7 +3,6 @@
 use App\Models\Sob;
 use App\Models\Staff;
 use App\Models\Capability;
-use App\Casters\CastBuilder;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;

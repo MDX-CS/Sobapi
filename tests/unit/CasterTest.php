@@ -1,7 +1,6 @@
 <?php
 
 use App\Models\Sob;
-use App\Casters\CastBuilder;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 

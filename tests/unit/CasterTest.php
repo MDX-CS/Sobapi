@@ -49,7 +49,7 @@ class CasterTest extends TestCase
     }
 }
 
-class TestCaster extends App\Casters\Caster
+class TestCaster extends Koch\Casters\Caster
 {
     protected function castRules()
     {

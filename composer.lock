@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0873314d2a7680e8437b994c5aa0401b",
-    "content-hash": "8f4bb5d3f5272d01530bb12371dd3ff5",
+    "hash": "e16e926654c43308be62305c53f5c097",
+    "content-hash": "17757bdcc3c77c2d78a3c9e4bf7fd328",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -521,17 +521,106 @@
             "time": "2015-12-05 17:17:57"
         },
         {
-            "name": "laravel/framework",
-            "version": "v5.3.21",
+            "name": "kouks/laravel-casters",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/laravel/framework.git",
-                "reference": "140ad823863d5cc6f4580f1cdf9b18b9a6a457f4"
+                "url": "https://github.com/kouks/laravel-casters.git",
+                "reference": "107cf104b2102a5c04b5b165e4eb54d0c1de35b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/140ad823863d5cc6f4580f1cdf9b18b9a6a457f4",
-                "reference": "140ad823863d5cc6f4580f1cdf9b18b9a6a457f4",
+                "url": "https://api.github.com/repos/kouks/laravel-casters/zipball/107cf104b2102a5c04b5b165e4eb54d0c1de35b5",
+                "reference": "107cf104b2102a5c04b5b165e4eb54d0c1de35b5",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Koch\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pavel Koch",
+                    "email": "kouks.koch@gmail.com"
+                }
+            ],
+            "description": "Provides a convenient way to cast and transform your models for API purposes.",
+            "keywords": [
+                "api",
+                "casters",
+                "laravel",
+                "transform"
+            ],
+            "support": {
+                "source": "https://github.com/kouks/laravel-casters/tree/master",
+                "issues": "https://github.com/kouks/laravel-casters/issues"
+            },
+            "time": "2016-11-06 21:39:40"
+        },
+        {
+            "name": "kouks/laravel-filters",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kouks/laravel-filters.git",
+                "reference": "013369482512a284705ed04bffea26f700433a5e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kouks/laravel-filters/zipball/013369482512a284705ed04bffea26f700433a5e",
+                "reference": "013369482512a284705ed04bffea26f700433a5e",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "^5.3",
+                "illuminate/http": "^5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Koch\\": "src/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Pavel Koch",
+                    "email": "kouks.koch@gmail.com"
+                }
+            ],
+            "description": "Provides a convenient way to filter through your models.",
+            "keywords": [
+                "filters",
+                "laravel"
+            ],
+            "support": {
+                "source": "https://github.com/kouks/laravel-filters/tree/master",
+                "issues": "https://github.com/kouks/laravel-filters/issues"
+            },
+            "time": "2016-11-06 21:55:25"
+        },
+        {
+            "name": "laravel/framework",
+            "version": "v5.3.22",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "715328dd4fb1a7bcf3cb41b3472f9e3499d068fc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/715328dd4fb1a7bcf3cb41b3472f9e3499d068fc",
+                "reference": "715328dd4fb1a7bcf3cb41b3472f9e3499d068fc",
                 "shasum": ""
             },
             "require": {
@@ -646,7 +735,7 @@
                 "framework",
                 "laravel"
             ],
-            "time": "2016-10-26 13:27:05"
+            "time": "2016-11-01 18:52:00"
         },
         {
             "name": "laravel/passport",
@@ -3047,16 +3136,16 @@
         },
         {
             "name": "phpunit/php-code-coverage",
-            "version": "4.0.1",
+            "version": "4.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-code-coverage.git",
-                "reference": "5f3f7e736d6319d5f1fc402aff8b026da26709a3"
+                "reference": "6cba06ff75a1a63a71033e1a01b89056f3af1e8d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/5f3f7e736d6319d5f1fc402aff8b026da26709a3",
-                "reference": "5f3f7e736d6319d5f1fc402aff8b026da26709a3",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-code-coverage/zipball/6cba06ff75a1a63a71033e1a01b89056f3af1e8d",
+                "reference": "6cba06ff75a1a63a71033e1a01b89056f3af1e8d",
                 "shasum": ""
             },
             "require": {
@@ -3106,7 +3195,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2016-07-26 14:39:29"
+            "time": "2016-11-01 05:06:24"
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -4154,7 +4243,10 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "kouks/laravel-casters": 20,
+        "kouks/laravel-filters": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

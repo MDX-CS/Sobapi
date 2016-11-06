@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Behavior\Filterable;
+use Koch\Filters\Behavior\Filterable;
 use Illuminate\Database\Eloquent\Model;
 
 class Level extends Model

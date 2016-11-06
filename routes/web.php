@@ -9,15 +9,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->middleware('guest');
-
-Route::get('/home', 'HomeController@index');
-
-Route::get('sobs', function () {
-    return view('sobs.index');
-})->middleware('auth');
+Route::get('', 'HomeController@index');
+Route::get('sobs', 'SobController@index');
 
 /*
 |--------------------------------------------------------------------------

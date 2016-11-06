@@ -28,11 +28,8 @@ class SobCaster extends Caster
      * @param  \App\Casters\TopicCaster  $topicCaster
      * @return void
      */
-    public function __construct(
-        CastBuilder $builder,
-        LevelCaster $levelCaster,
-        TopicCaster $topicCaster
-    ) {
+    public function __construct(CastBuilder $builder, LevelCaster $levelCaster, TopicCaster $topicCaster)
+    {
         parent::__construct($builder);
 
         $this->levelCaster = $levelCaster;

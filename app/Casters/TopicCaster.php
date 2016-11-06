@@ -12,7 +12,7 @@ class TopicCaster extends Caster
     protected function castRules()
     {
         return [
-            'topic_id' => 'id',
+            'topic_id' => '!name:id|type:int',
             'topic' => 'name',
         ];
     }

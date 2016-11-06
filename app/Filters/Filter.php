@@ -12,6 +12,13 @@ abstract class Filter
     use Searchable, Orderable;
 
     /**
+     * Already loaded relations.
+     *
+     * @var array
+     */
+    protected $loaded = [];
+
+    /**
      * Default searchable columns.
      *
      * @var array
@@ -99,5 +106,29 @@ abstract class Filter
     protected function getTableName()
     {
         return $this->builder->getModel()->getTable();
+    }
+
+    /**
+     * Recursively build up the query.
+     *
+     * @param  string  $column
+     * @param  string  $key
+     * @param  string  $last
+     * @param  callable  $callback
+     * @return void
+     */
+    protected function resolve($column, $key, $last, callable $callback)
+    {
+        if (! strpos($column, '.')) {
+            return $callback("{$last}.{$column}", $key);
+        }
+
+        $scope = strstr($column, '.', true);
+        $singular = str_singular($scope);
+        $next = substr(strstr($column, '.'), 1);
+
+        $this->builder->join($scope, "{$last}.{$singular}_id", "{$scope}.id");
+
+        return $this->resolve($next, $key, $scope, $callback);
     }
 }

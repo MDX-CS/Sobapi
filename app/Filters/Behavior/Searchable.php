@@ -5,22 +5,19 @@ namespace App\Filters\Behavior;
 trait Searchable
 {
     /**
-     * Already loaded relations.
-     *
-     * @var array
-     */
-    protected $loaded = [];
-
-    /**
      * Searches given columns.
      *
      * @param  string  $pattern
      * @return void
      */
-    public function search($pattern)
+    public function search($pattern = null)
     {
+        if (! $pattern) {
+            return;
+        }
+
         foreach ($this->searchable as $column) {
-            $this->resolveSearch($column, $pattern, $this->getTableName());
+            $this->resolveSearch($column, $pattern);
         }
     }
 
@@ -29,25 +26,12 @@ trait Searchable
      *
      * @param  string  $column
      * @param  string  $key
-     * @param  string  $last
      * @return void
      */
-    protected function resolveSearch($column, $key, $last = '')
+    protected function resolveSearch($column, $key)
     {
-        if (strpos($column, '.')) {
-            $scope = strstr($column, '.', true);
-            $singular = str_singular($scope);
-            $next = substr(strstr($column, '.'), 1);
-
-            if (! in_array($scope, $this->loaded)) {
-                $this->loaded[] = $scope;
-
-                $this->builder->leftJoin($scope, "{$last}.{$singular}_id", "{$scope}.id");
-            }
-
-            return $this->resolveSearch($next, $key, $scope);
-        }
-
-        $this->builder->orWhere("{$last}.{$column}", 'like', "%{$key}%");
+        $this->resolve($column, $key, $this->getTableName(), function ($query, $pattern) {
+            $this->builder->orWhere($query, 'LIKE', "%{$pattern}%");
+        });
     }
 }

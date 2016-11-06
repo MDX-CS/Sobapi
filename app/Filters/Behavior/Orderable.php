@@ -17,7 +17,7 @@ trait Orderable
             return;
         }
 
-        $this->resolveOrder($this->orderable[$method], $args[0], $this->getTableName());
+        $this->resolveOrder($this->orderable[$method], $args[0]);
     }
 
     /**
@@ -25,21 +25,12 @@ trait Orderable
      *
      * @param  string  $column
      * @param  string  $key
-     * @param  string  $last
      * @return void
      */
-    protected function resolveOrder($column, $key, $last = '')
+    protected function resolveOrder($column, $key)
     {
-        if (strpos($column, '.')) {
-            $scope = strstr($column, '.', true);
-            $singular = str_singular($scope);
-            $next = substr(strstr($column, '.'), 1);
-
-            $this->builder->join($scope, "{$last}.{$singular}_id", "{$scope}.id");
-
-            return $this->resolveOrder($next, $key, $scope);
-        }
-
-        $this->builder->orderBy("{$last}.{$column}", $key);
+        $this->resolve($column, $key, $this->getTableName(), function ($query, $pattern) {
+            $this->builder->orderBy($query, $pattern);
+        });
     }
 }

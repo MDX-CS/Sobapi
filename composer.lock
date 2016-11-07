@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e16e926654c43308be62305c53f5c097",
-    "content-hash": "17757bdcc3c77c2d78a3c9e4bf7fd328",
+    "hash": "0dcb840072f9f3ba8abc2a58b5dd8336",
+    "content-hash": "757513095353eaaf9625f495b0803aab",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -526,16 +526,20 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kouks/laravel-casters.git",
-                "reference": "107cf104b2102a5c04b5b165e4eb54d0c1de35b5"
+                "reference": "283ca2bd90dca64249b2451e0a21890baebb41e6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kouks/laravel-casters/zipball/107cf104b2102a5c04b5b165e4eb54d0c1de35b5",
-                "reference": "107cf104b2102a5c04b5b165e4eb54d0c1de35b5",
+                "url": "https://api.github.com/repos/kouks/laravel-casters/zipball/283ca2bd90dca64249b2451e0a21890baebb41e6",
+                "reference": "283ca2bd90dca64249b2451e0a21890baebb41e6",
                 "shasum": ""
             },
             "require": {
                 "illuminate/database": "^5.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "~5.0"
             },
             "type": "library",
             "autoload": {
@@ -543,6 +547,7 @@
                     "Koch\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -559,11 +564,7 @@
                 "laravel",
                 "transform"
             ],
-            "support": {
-                "source": "https://github.com/kouks/laravel-casters/tree/master",
-                "issues": "https://github.com/kouks/laravel-casters/issues"
-            },
-            "time": "2016-11-06 21:39:40"
+            "time": "2016-11-07 00:50:33"
         },
         {
             "name": "kouks/laravel-filters",
@@ -571,17 +572,21 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kouks/laravel-filters.git",
-                "reference": "013369482512a284705ed04bffea26f700433a5e"
+                "reference": "009111e799c495b4220cd0dee70e615d5e923bae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kouks/laravel-filters/zipball/013369482512a284705ed04bffea26f700433a5e",
-                "reference": "013369482512a284705ed04bffea26f700433a5e",
+                "url": "https://api.github.com/repos/kouks/laravel-filters/zipball/009111e799c495b4220cd0dee70e615d5e923bae",
+                "reference": "009111e799c495b4220cd0dee70e615d5e923bae",
                 "shasum": ""
             },
             "require": {
                 "illuminate/database": "^5.3",
                 "illuminate/http": "^5.3"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "~5.0"
             },
             "type": "library",
             "autoload": {
@@ -589,6 +594,7 @@
                     "Koch\\": "src/"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -603,11 +609,7 @@
                 "filters",
                 "laravel"
             ],
-            "support": {
-                "source": "https://github.com/kouks/laravel-filters/tree/master",
-                "issues": "https://github.com/kouks/laravel-filters/issues"
-            },
-            "time": "2016-11-06 21:55:25"
+            "time": "2016-11-06 23:34:57"
         },
         {
             "name": "laravel/framework",

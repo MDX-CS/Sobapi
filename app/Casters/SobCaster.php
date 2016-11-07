@@ -19,10 +19,10 @@ class SobCaster extends Caster
             'url',
             'sob' => 'name',
             'level' => function (Sob $sob) {
-                return $sob->level->cast();
+                return $sob->level ? $sob->level->cast() : [];
             },
             'topic' => function (Sob $sob) {
-                return $sob->topic->cast();
+                return $sob->topic ? $sob->topic->cast() : [];
             },
             'sob_notes' => 'description',
             'expected_start_date',

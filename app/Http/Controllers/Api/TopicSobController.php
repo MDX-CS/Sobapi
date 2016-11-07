@@ -4,21 +4,32 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Sob;
 use App\Models\Topic;
+use App\Casters\SobCaster;
 use App\Http\Responder\Responder;
 use App\Repositories\SobRepository;
 
 class TopicSobController extends Controller
 {
     /**
+     * The Caster instance.
+     *
+     * @var \App\Casters\SobCaster
+     */
+    protected $caster;
+
+    /**
      * Class constructor.
      *
+     * @param  \App\Casters\SobCaster  $caster
      * @param  \App\Repositories\SobRepository  $respository
      * @param  \App\Http\Responder\Responder  $responder
      * @return void
      */
-    public function __construct(SobRepository $repository, Responder $responder)
+    public function __construct(SobCaster $caster, SobRepository $repository, Responder $responder)
     {
         parent::__construct($repository, $responder);
+
+        $this->caster = $caster;
     }
 
     /**
@@ -37,7 +48,7 @@ class TopicSobController extends Controller
 
         return $this->responder
             ->ok()
-            ->withData($this->repository->cast($topic->sobs))
+            ->withData($this->caster->cast($topic->sobs))
             ->send();
     }
 

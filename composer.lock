@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "0dcb840072f9f3ba8abc2a58b5dd8336",
-    "content-hash": "757513095353eaaf9625f495b0803aab",
+    "hash": "091fa495abea0af70244590c5c45fb73",
+    "content-hash": "5723a42b95f1f57ba562d3f548c6d0ad",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -522,23 +522,24 @@
         },
         {
             "name": "kouks/laravel-casters",
-            "version": "dev-master",
+            "version": "1.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kouks/laravel-casters.git",
-                "reference": "283ca2bd90dca64249b2451e0a21890baebb41e6"
+                "reference": "6b5ada1147b658cf2866a9e9573b66ff699edbbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kouks/laravel-casters/zipball/283ca2bd90dca64249b2451e0a21890baebb41e6",
-                "reference": "283ca2bd90dca64249b2451e0a21890baebb41e6",
+                "url": "https://api.github.com/repos/kouks/laravel-casters/zipball/6b5ada1147b658cf2866a9e9573b66ff699edbbf",
+                "reference": "6b5ada1147b658cf2866a9e9573b66ff699edbbf",
                 "shasum": ""
             },
             "require": {
-                "illuminate/database": "^5.3"
+                "illuminate/database": "^5.3",
+                "php": ">=5.6.4"
             },
             "require-dev": {
-                "mockery/mockery": "0.9.*",
+                "fzaninotto/faker": "^1.6",
                 "phpunit/phpunit": "~5.0"
             },
             "type": "library",
@@ -564,20 +565,20 @@
                 "laravel",
                 "transform"
             ],
-            "time": "2016-11-07 00:50:33"
+            "time": "2016-11-07 21:17:02"
         },
         {
             "name": "kouks/laravel-filters",
-            "version": "dev-master",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kouks/laravel-filters.git",
-                "reference": "009111e799c495b4220cd0dee70e615d5e923bae"
+                "reference": "47e68a748707f118d17c1c239bf501e40bbce249"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kouks/laravel-filters/zipball/009111e799c495b4220cd0dee70e615d5e923bae",
-                "reference": "009111e799c495b4220cd0dee70e615d5e923bae",
+                "url": "https://api.github.com/repos/kouks/laravel-filters/zipball/47e68a748707f118d17c1c239bf501e40bbce249",
+                "reference": "47e68a748707f118d17c1c239bf501e40bbce249",
                 "shasum": ""
             },
             "require": {
@@ -585,7 +586,7 @@
                 "illuminate/http": "^5.3"
             },
             "require-dev": {
-                "mockery/mockery": "0.9.*",
+                "fzaninotto/faker": "^1.6",
                 "phpunit/phpunit": "~5.0"
             },
             "type": "library",
@@ -609,7 +610,7 @@
                 "filters",
                 "laravel"
             ],
-            "time": "2016-11-06 23:34:57"
+            "time": "2016-11-07 16:20:38"
         },
         {
             "name": "laravel/framework",
@@ -4245,10 +4246,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "kouks/laravel-casters": 20,
-        "kouks/laravel-filters": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

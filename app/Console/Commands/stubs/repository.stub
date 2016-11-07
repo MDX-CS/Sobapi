@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\{resource};
-use App\Casters\{resource}Caster;
 use App\Filters\{resource}Filter;
 
 class {resource}Repository extends Repository
@@ -11,14 +10,13 @@ class {resource}Repository extends Repository
     /**
      * Class constructor.
      *
-     * @param  \App\Casters\{resource}Caster  $caster
      * @param  \App\Filters\{resource}Filter  $filter
      * @param  \App\Models\{resource}  $model
      * @return void
      */
-    public function __construct({resource}Caster $caster, {resource}Filter $filter, {resource} $model)
+    public function __construct({resource}Filter $filter, {resource} $model)
     {
-        parent::__construct($caster, $filter, $model);
+        parent::__construct($filter, $model);
     }
 
     /**

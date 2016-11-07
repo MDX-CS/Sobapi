@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\Level;
-use App\Casters\LevelCaster;
 use App\Filters\LevelFilter;
 
 class LevelRepository extends Repository

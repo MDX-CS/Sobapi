@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Koch\Casters\Behavior\Castable;
 use Koch\Filters\Behavior\Filterable;
 use Illuminate\Database\Eloquent\Model;
 
 class Level extends Model
 {
-    use Filterable;
+    use Filterable, Castable;
 
     /**
      * The primary key name.

@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\Sob;
-use App\Casters\SobCaster;
 use App\Filters\SobFilter;
 
 class SobRepository extends Repository
@@ -16,9 +15,9 @@ class SobRepository extends Repository
      * @param  \App\Models\Sob  $model
      * @return void
      */
-    public function __construct(SobCaster $caster, SobFilter $filter, Sob $model)
+    public function __construct(SobFilter $filter, Sob $model)
     {
-        parent::__construct($caster, $filter, $model);
+        parent::__construct($filter, $model);
     }
 
     /**

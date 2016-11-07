@@ -8,33 +8,6 @@ use Koch\Casters\Caster;
 class SobCaster extends Caster
 {
     /**
-     * Level caster instance.
-     *
-     * @var \App\Casters\LevelCaster
-     */
-    protected $levelCaster;
-
-    /**
-     * Topic caster instance.
-     *
-     * @var \App\Casters\TopicCaster
-     */
-    protected $topicCaster;
-
-    /**
-     * Class constructor.
-     *
-     * @param  \App\Casters\LevelCaster  $levelCaster
-     * @param  \App\Casters\TopicCaster  $topicCaster
-     * @return void
-     */
-    public function __construct(LevelCaster $levelCaster, TopicCaster $topicCaster)
-    {
-        $this->levelCaster = $levelCaster;
-        $this->topicCaster = $topicCaster;
-    }
-
-    /**
      * Returns the cast rules.
      *
      * @return array
@@ -46,10 +19,10 @@ class SobCaster extends Caster
             'url',
             'sob' => 'name',
             'level' => function (Sob $sob) {
-                return $this->levelCaster->cast($sob->level);
+                return $sob->level->cast();
             },
             'topic' => function (Sob $sob) {
-                return $this->topicCaster->cast($sob->topic);
+                return $sob->topic->cast();
             },
             'sob_notes' => 'description',
             'expected_start_date',

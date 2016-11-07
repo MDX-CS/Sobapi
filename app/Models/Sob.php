@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use Koch\Casters\Behavior\Castable;
 use Koch\Filters\Behavior\Filterable;
 use Illuminate\Database\Eloquent\Model;
 
 class Sob extends Model
 {
-    use Filterable;
+    use Filterable, Castable;
 
     /**
      * Removes timestamps.

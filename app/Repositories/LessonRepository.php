@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\Lesson;
-use App\Casters\LessonCaster;
 use App\Filters\LessonFilter;
 
 class LessonRepository extends Repository
@@ -11,14 +10,13 @@ class LessonRepository extends Repository
     /**
      * Class constructor.
      *
-     * @param  \App\Casters\LessonCaster  $caster
      * @param  \App\Filters\LessonFilter  $filter
      * @param  \App\Models\Lesson  $model
      * @return void
      */
-    public function __construct(LessonCaster $caster, LessonFilter $filter, Lesson $model)
+    public function __construct(LessonFilter $filter, Lesson $model)
     {
-        parent::__construct($caster, $filter, $model);
+        parent::__construct($filter, $model);
     }
 
     /**

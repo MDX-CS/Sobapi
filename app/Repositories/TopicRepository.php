@@ -3,7 +3,6 @@
 namespace App\Repositories;
 
 use App\Models\Topic;
-use App\Casters\TopicCaster;
 use App\Filters\TopicFilter;
 
 class TopicRepository extends Repository
@@ -16,9 +15,9 @@ class TopicRepository extends Repository
      * @param  \App\Models\Topic  $model
      * @return void
      */
-    public function __construct(TopicCaster $caster, TopicFilter $filter, Topic $model)
+    public function __construct(TopicFilter $filter, Topic $model)
     {
-        parent::__construct($caster, $filter, $model);
+        parent::__construct($filter, $model);
     }
 
     /**

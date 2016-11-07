@@ -2,19 +2,11 @@
 
 namespace App\Repositories;
 
-use Koch\Casters\Contracts\Caster;
 use Koch\Filters\Contracts\Filter;
 use Illuminate\Database\Eloquent\Model;
 
 abstract class Repository
 {
-    /**
-     * Resource caster.
-     *
-     * @var \Koch\Filters\Contracts\Caster
-     */
-    protected $caster;
-
     /**
      * Resource filter.
      *
@@ -32,26 +24,14 @@ abstract class Repository
     /**
      * Class constructor.
      *
-     * @param  \Koch\Filters\Contracts\Caster  $caster
      * @param  \Koch\Filters\Contracts\Filter  $filter
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @return void
      */
-    public function __construct(Caster $caster, Filter $filter, Model $model)
+    public function __construct(Filter $filter, Model $model)
     {
-        $this->caster = $caster;
         $this->filter = $filter;
         $this->model = $model;
-    }
-
-    /**
-     * Performs resource casting.
-     *
-     * @return \App\Casters\Caster
-     */
-    public function cast($model)
-    {
-        return $this->caster->cast($model);
     }
 
     /**

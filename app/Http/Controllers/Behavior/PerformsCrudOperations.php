@@ -13,9 +13,9 @@ trait PerformsCrudOperations
     {
         $this->authorize('view', $this->repository->modelName());
 
-        $resources = $this->repository->filter()->get();
+        $resources = $this->repository->filter();
 
-        return $this->responder->ok()->withData($this->repository->cast($resources))->send();
+        return $this->responder->ok()->withData($resources->cast())->send();
     }
 
     /**
@@ -50,7 +50,7 @@ trait PerformsCrudOperations
             return $this->responder->notFound()->send();
         }
 
-        return $this->responder->ok()->withData($this->repository->cast($resource))->send();
+        return $this->responder->ok()->withData($resource->cast())->send();
     }
 
     /**

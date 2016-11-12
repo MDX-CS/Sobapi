@@ -4,7 +4,6 @@ namespace App\Exceptions;
 
 use Exception;
 use App\Http\Responder\Responder;
-use Illuminate\Auth\AuthenticationException;
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 

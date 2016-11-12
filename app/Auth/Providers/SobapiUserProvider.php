@@ -57,7 +57,7 @@ class SobapiUserProvider implements UserProvider
      * Retrieve a user by their unique identifier.
      *
      * @param  mixed  $identifier
-     * @return \Illuminate\Contracts\Auth\Authenticatable|null
+     * @return \Illuminate\Database\Eloquent\Model|null
      */
     public function retrieveById($identifier)
     {

@@ -13,7 +13,7 @@ class LevelController extends Controller
     /**
      * Class constructor.
      *
-     * @param  \App\Repositories\LevelRepository  $respository
+     * @param  \App\Repositories\LevelRepository  $repository
      * @param  \App\Http\Responder\Responder  $responder
      * @return void
      */

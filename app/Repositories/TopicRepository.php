@@ -10,7 +10,6 @@ class TopicRepository extends Repository
     /**
      * Class constructor.
      *
-     * @param  \App\Casters\TopicCaster  $caster
      * @param  \App\Filters\TopicFilter  $filter
      * @param  \App\Models\Topic  $model
      * @return void

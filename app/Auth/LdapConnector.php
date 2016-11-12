@@ -16,7 +16,7 @@ class LdapConnector
     /**
      * Attempts to connect to the ldap service.
      *
-     * @return \Ldap|null
+     * @return resource
      */
     protected function connect()
     {

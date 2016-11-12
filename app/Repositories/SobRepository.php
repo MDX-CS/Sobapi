@@ -10,7 +10,6 @@ class SobRepository extends Repository
     /**
      * Class constructor.
      *
-     * @param  \App\Casters\SobCaster  $caster
      * @param  \App\Filters\SobFilter  $filter
      * @param  \App\Models\Sob  $model
      * @return void

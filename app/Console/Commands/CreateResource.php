@@ -136,6 +136,7 @@ class CreateResource extends Command
     /**
      * Get the stub file for the generator.
      *
+     * @param  string  $class
      * @return string
      */
     protected function getStub($class)

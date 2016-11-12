@@ -12,7 +12,7 @@ class CategoryController extends Controller
     /**
      * Class constructor.
      *
-     * @param  \App\Repositories\SobRepository  $respository
+     * @param  \App\Repositories\LessonRepository  $repository
      * @param  \App\Http\Responder\Responder  $responder
      * @return void
      */

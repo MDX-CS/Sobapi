@@ -18,7 +18,7 @@ class CreateAttendanceTable extends Migration
             $table->integer('crn')->index();
             $table->integer('week')->index()->nullable();
             $table->integer('studid')->index();
-            $table->integer('loginid')->index()->nullable();
+            $table->integer('loginid')->index();
             $table->string('record_timestamp')->nullable();
         });
     }

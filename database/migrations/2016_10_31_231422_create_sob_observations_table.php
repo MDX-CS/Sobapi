@@ -17,9 +17,9 @@ class CreateSobObservationsTable extends Migration
             $table->increments('observation_id');
             $table->integer('sob_id')->index();
             $table->integer('student_id')->index();
-            $table->timestamp('observed_on')->nullable();
             $table->integer('observation_notes')->nullable();
-            $table->integer('observed_by')->nullable();
+            $table->integer('observed_by');
+            $table->timestamp('observed_on')->nullable();
         });
     }
 

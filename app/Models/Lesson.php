@@ -36,8 +36,9 @@ class Lesson extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function students()
+    public function attendedBy()
     {
-        return $this->belongsToMany(Student::class, 'attendance', 'crn', 'studid');
+        return $this->belongsToMany(Student::class, 'attendance', 'crn', 'studid')
+            ->withPivot('week', 'loginid', 'record_timestamp');
     }
 }

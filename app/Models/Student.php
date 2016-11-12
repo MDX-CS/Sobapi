@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
+
 class Student extends User
 {
     /**
@@ -31,7 +33,8 @@ class Student extends User
      */
     public function sobs()
     {
-        return $this->belongsToMany(Sob::class, 'sob_observations', 'student_id');
+        return $this->belongsToMany(Sob::class, 'sob_observations', 'student_id')
+            ->withPivot('observation_notes', 'observed_by', 'observed_on');
     }
 
     /**
@@ -39,9 +42,10 @@ class Student extends User
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function lessons()
+    public function attendance()
     {
-        return $this->belongsToMany(Lesson::class, 'attendance', 'studid', 'crn');
+        return $this->belongsToMany(Lesson::class, 'attendance', 'studid', 'crn')
+            ->withPivot('week', 'loginid', 'record_timestamp');
     }
 
     /**
@@ -52,7 +56,14 @@ class Student extends User
      */
     public function toggleObservation(Sob $sob)
     {
-        $this->sobs()->toggle($sob);
+        if ($this->sobs->contains($sob)) {
+            return $this->sobs()->detach($sob);
+        }
+
+        return $this->sobs()->attach($sob, [
+            'observed_by' => auth()->id(),
+            'observed_on' => Carbon::now(),
+        ]);
     }
 
     /**
@@ -63,7 +74,14 @@ class Student extends User
      */
     public function toggleAttendance(Lesson $lesson)
     {
-        $this->lessons()->toggle($lesson);
+        if ($this->attendance->contains($lesson)) {
+            return $this->attendance()->detach($lesson);
+        }
+
+        return $this->attendance()->attach($lesson, [
+            'loginid' => auth()->id(),
+            'record_timestamp' => Carbon::now(),
+        ]);
     }
 
     /**

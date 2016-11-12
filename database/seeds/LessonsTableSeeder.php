@@ -17,7 +17,7 @@ class LessonsTableSeeder extends Seeder
 
         factory(Lesson::class, 10)->create()->each(function (Lesson $l) use ($st) {
             if (rand(0, 1) && $st) {
-                $l->students()->attach($st->network_name);
+                $st->toggleObservation($l);
             }
         });
     }

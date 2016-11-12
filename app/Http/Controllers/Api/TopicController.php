@@ -13,7 +13,7 @@ class TopicController extends Controller
     /**
      * Class constructor.
      *
-     * @param  \App\Repositories\TopicRepository  $respository
+     * @param  \App\Repositories\TopicRepository  $repository
      * @param  \App\Http\Responder\Responder  $responder
      * @return void
      */

@@ -147,6 +147,7 @@ class Responder
     /**
      * Sets the status code.
      *
+     * @param  int  $code
      * @return self
      */
     public function status($code)

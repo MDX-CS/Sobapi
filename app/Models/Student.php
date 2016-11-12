@@ -52,7 +52,7 @@ class Student extends User
      * Toggles the obsevation status of the given sob in relation with this student.
      *
      * @param  \App\Models\Sob  $sob
-     * @return void
+     * @return integer|null
      */
     public function toggleObservation(Sob $sob)
     {
@@ -70,7 +70,7 @@ class Student extends User
      * Toggles the attendance status of the given lesson in relation with this student.
      *
      * @param  \App\Models\Lesson  $lesson
-     * @return void
+     * @return integer|null
      */
     public function toggleAttendance(Lesson $lesson)
     {

@@ -67,7 +67,7 @@ abstract class Repository
     /**
      * Stores the request data onto assigned database table.
      *
-     * @return bool
+     * @return \Illuminate\Database\Eloquent\Model
      */
     public function store()
     {
@@ -77,7 +77,7 @@ abstract class Repository
     /**
      * Returns the model name.
      *
-     * @return \Illuminate\Database\Eloquent\Model
+     * @return string
      */
     public function modelName()
     {

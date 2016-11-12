@@ -13,7 +13,7 @@ class SobController extends Controller
     /**
      * Class constructor.
      *
-     * @param  \App\Repositories\SobRepository  $respository
+     * @param  \App\Repositories\SobRepository  $repository
      * @param  \App\Http\Responder\Responder  $responder
      * @return void
      */

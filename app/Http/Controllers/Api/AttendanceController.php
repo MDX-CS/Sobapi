@@ -12,7 +12,7 @@ class AttendanceController extends Controller
     /**
      * Class constructor.
      *
-     * @param  \App\Repositories\LessonRepository  $respository
+     * @param  \App\Repositories\LessonRepository  $repository
      * @param  \App\Http\Responder\Responder  $responder
      * @return void
      */

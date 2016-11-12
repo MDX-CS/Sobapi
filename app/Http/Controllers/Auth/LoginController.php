@@ -123,7 +123,7 @@ class LoginController extends Controller
      * The user has been authenticated.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  mixed  $user
+     * @param  \Illuminate\Contracts\Auth\Authenticatable|null  $user
      * @return mixed
      */
     protected function authenticated(Request $request, $user)
@@ -135,7 +135,7 @@ class LoginController extends Controller
      * Get the failed login response instance.
      *
      * @param \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     protected function sendFailedLoginResponse(Request $request)
     {
@@ -160,7 +160,7 @@ class LoginController extends Controller
      * Log the user out of the application.
      *
      * @param  Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function logout(Request $request)
     {

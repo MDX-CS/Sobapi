@@ -56,7 +56,8 @@ class Sob extends Model
      */
     public function students()
     {
-        return $this->belongsToMany(Student::class, 'sob_observations', 'sob_id');
+        return $this->belongsToMany(Student::class, 'sob_observations', 'sob_id')
+            ->withPivot('observation_notes', 'observed_by', 'observed_on');
     }
 
     /**

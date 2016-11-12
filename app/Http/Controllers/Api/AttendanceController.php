@@ -4,32 +4,21 @@ namespace App\Http\Controllers\Api;
 
 use App\Models\Lesson;
 use App\Models\Student;
-use App\Casters\LessonCaster;
 use App\Http\Responder\Responder;
 use App\Repositories\LessonRepository;
 
-class StudentLessonController extends Controller
+class AttendanceController extends Controller
 {
-    /**
-     * The Caster instance.
-     *
-     * @var \App\Casters\LessonCaster
-     */
-    protected $caster;
-
     /**
      * Class constructor.
      *
-     * @param  \App\Casters\LessonCaster  $caster
      * @param  \App\Repositories\LessonRepository  $respository
      * @param  \App\Http\Responder\Responder  $responder
      * @return void
      */
-    public function __construct(LessonCaster $caster, LessonRepository $repository, Responder $responder)
+    public function __construct(LessonRepository $repository, Responder $responder)
     {
         parent::__construct($repository, $responder);
-
-        $this->caster = $caster;
     }
 
     /**
@@ -51,7 +40,7 @@ class StudentLessonController extends Controller
 
         return $this->responder
             ->ok()
-            ->withData($this->caster->cast($student->lessons))
+            ->withData($student->attendance()->cast())
             ->send();
     }
 

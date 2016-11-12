@@ -13,15 +13,15 @@ Route::resource('sobs', 'SobController', [
     'except' => ['create', 'edit'],
 ]);
 
-Route::resource('students.sobs', 'StudentSobController', [
+Route::resource('students.sobs', 'ObsevationController', [
     'only' => ['index', 'update'],
 ]);
 
-Route::resource('levels.sobs', 'LevelSobController', [
+Route::resource('levels.sobs', 'DifficultyController', [
     'only' => ['index', 'update'],
 ]);
 
-Route::resource('topics.sobs', 'TopicSobController', [
+Route::resource('topics.sobs', 'CategoryController', [
     'only' => ['index', 'update'],
 ]);
 
@@ -38,7 +38,7 @@ Route::resource('lessons', 'LessonController', [
     'except' => ['create', 'edit'],
 ]);
 
-Route::resource('students.lessons', 'StudentLessonController', [
+Route::resource('students.lessons', 'AttendanceController', [
     'only' => ['index', 'update'],
 ]);
 

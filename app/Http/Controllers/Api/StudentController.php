@@ -13,7 +13,7 @@ class StudentController extends Controller
     /**
      * Class constructor.
      *
-     * @param  \App\Repositories\StudentRepository  $respository
+     * @param  \App\Repositories\StudentRepository  $repository
      * @param  \App\Http\Responder\Responder  $responder
      * @return void
      */

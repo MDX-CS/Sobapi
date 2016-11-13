@@ -109,20 +109,7 @@ class LoginController extends Controller
 
         $this->clearLoginAttempts($request);
 
-        return $this->authenticated($request, $this->guard()->user())
-                ?: redirect()->intended($this->redirectPath());
-    }
-
-    /**
-     * The user has been authenticated.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Illuminate\Contracts\Auth\Authenticatable|null  $user
-     * @return mixed
-     */
-    protected function authenticated(Request $request, $user)
-    {
-        //
+        return redirect()->intended($this->redirectPath());
     }
 
     /**

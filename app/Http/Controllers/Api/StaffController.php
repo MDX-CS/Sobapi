@@ -13,7 +13,7 @@ class StaffController extends Controller
     /**
      * Class constructor.
      *
-     * @param  \App\Repositories\StaffRepository  $respository
+     * @param  \App\Repositories\StaffRepository  $repository
      * @param  \App\Http\Responder\Responder  $responder
      * @return void
      */

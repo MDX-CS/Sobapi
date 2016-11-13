@@ -13,7 +13,7 @@ class {resource}Controller extends Controller
     /**
      * Class constructor.
      *
-     * @param  \App\Repositories\{resource}Repository  $respository
+     * @param  \App\Repositories\{resource}Repository  $repository
      * @param  \App\Http\Responder\Responder  $responder
      * @return void
      */

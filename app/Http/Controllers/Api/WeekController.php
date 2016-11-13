@@ -13,7 +13,7 @@ class WeekController extends Controller
     /**
      * Class constructor.
      *
-     * @param  \App\Repositories\WeekRepository  $respository
+     * @param  \App\Repositories\WeekRepository  $repository
      * @param  \App\Http\Responder\Responder  $responder
      * @return void
      */

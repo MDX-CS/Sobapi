@@ -1,9 +1,117 @@
 
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url(https://fonts.googleapis.com/css?family=Raleway:200,300,400,600);
 
 // Variables
 @import "variables";
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.navbar.navbar-static-top {
+  border-top: 7px solid $brand-primary;
+}
+
+h1 {
+  font-weight: 200;
+  margin: 30px 0;
+}
+
+h2 {
+  position: relative;
+  font-size: 25px;
+
+  a {
+    color: inherit;
+
+    &:hover {
+      text-decoration: none;
+      color: inherit;
+    }
+  }
+}
+
+h3 {
+  font-size: 19px;
+  font-weight: 400;
+  margin: 30px 0;
+}
+
+h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 20px 0;
+}
+
+h2:before {
+  color: $brand-primary;
+  content: "#";
+  font-size: 22px;
+  margin-left: -25px;
+  opacity: .6;
+  position: absolute;
+  top: 3px;
+}
+
+ul.content-summary {
+  > li > a {
+    font-weight: bold;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  a {
+    color: $brand-primary;
+    cursor: pointer;
+    position: relative;
+    text-decoration: none;
+
+    &:hover {
+      color: darken($brand-primary, 20%);
+    }
+
+    &:before {
+        color: $brand-primary;
+        content: "#";
+        margin-left: -15px;
+        opacity: .45;
+        position: absolute;
+    }
+  }
+}
+
+.documentation {
+  p {
+    text-align: justify;
+  }
+
+  pre {
+    background: rgba(238,238,238,.35);
+    text-align: left;
+    border: none;
+    box-shadow: 0 1px 1px rgba(0,0,0,.125);
+  }
+
+  a {
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+footer.footer {
+  background: #f5f8fa;
+  padding: 30px 0;
+  margin-top: 40px;
+
+  span.copy {
+    color: #aaa;
+    display: block;
+    letter-spacing: 3px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 13px;
+  }
+}

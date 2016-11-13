@@ -13,14 +13,6 @@ Route::resource('sobs', 'SobController', [
     'except' => ['create', 'edit'],
 ]);
 
-Route::resource('students.sobs', 'ObservationController', [
-    'only' => ['index', 'update'],
-]);
-
-Route::resource('levels.sobs', 'DifficultyController', [
-    'only' => ['index', 'update'],
-]);
-
 Route::resource('topics.sobs', 'CategoryController', [
     'only' => ['index', 'update'],
 ]);
@@ -38,14 +30,6 @@ Route::resource('lessons', 'LessonController', [
     'except' => ['create', 'edit'],
 ]);
 
-Route::resource('students.attendance', 'AttendanceController', [
-    'only' => ['index', 'update'],
-]);
-
-Route::resource('students.timetable', 'TimetableController', [
-    'only' => ['index', 'update'],
-]);
-
 /*
 |--------------------------------------------------------------------------
 | Level resource routes
@@ -57,6 +41,10 @@ Route::resource('students.timetable', 'TimetableController', [
 
 Route::resource('levels', 'LevelController', [
     'except' => ['create', 'edit'],
+]);
+
+Route::resource('levels.sobs', 'DifficultyController', [
+    'only' => ['index', 'update'],
 ]);
 
 /*
@@ -83,6 +71,18 @@ Route::resource('topics', 'TopicController', [
 
 Route::resource('students', 'StudentController', [
     'except' => ['create', 'edit'],
+]);
+
+Route::resource('students.sobs', 'ObservationController', [
+    'only' => ['index', 'update'],
+]);
+
+Route::resource('students.attendance', 'AttendanceController', [
+    'only' => ['index', 'update'],
+]);
+
+Route::resource('students.timetable', 'TimetableController', [
+    'only' => ['index', 'update'],
 ]);
 
 /*

@@ -12,7 +12,7 @@ class StudentFilter extends Filter
      * @var array
      */
     protected $searchable = [
-        //
+        'id', 'firstname', 'lastname', 'network_name', 'email', 'student_number',
     ];
 
     /**
@@ -21,6 +21,10 @@ class StudentFilter extends Filter
      * @var array
      */
     protected $orderable = [
-        //
+        'id' => 'student_id',
+        'name' => 'network_name',
+        'first_name' => 'firstname',
+        'last_name' => 'lastname',
+        'email' => 'email',
     ];
 }

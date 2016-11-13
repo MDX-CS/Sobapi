@@ -24,13 +24,12 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                &nbsp;
+                <li><a href="{{ url('/docs') }}">Documentation</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
             <ul class="nav navbar-nav navbar-right">
-                <!-- Authentication Links -->
-                @if (Auth::guest())
+                @if (auth()->guest())
                     <li><a href="{{ url('/login') }}">Login</a></li>
                 @else
                     <li class="dropdown">
@@ -39,6 +38,9 @@
                         </a>
 
                         <ul class="dropdown-menu" role="menu">
+                            <li><a href="{{ url('/apps') }}">Applications</a></li>
+                            <li><a href="{{ url('/tokens') }}">Personal tokens</a></li>
+                            <li class="divider"></li>
                             <li>
                                 <a href="{{ url('/logout') }}"
                                     onclick="event.preventDefault();

@@ -4,23 +4,13 @@
 [![StyleCI](https://styleci.io/repos/71598384/shield?branch=master)](https://styleci.io/repos/71598384)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/MDX-CS/Sobapi/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/MDX-CS/Sobapi/?branch=master)
 
-This app provides api backend for the Middlesex' Sobmonitor app. It is a Laravel based project and the API authentication is handled via Laravel's Passport, which provides a fully functional Ouath 2 server. This means that anyone eligible to login to the Middlesex Uniersity system can create an app which would consume this API. See [Consuming the API](#consuming-the-api) for more information how to setup your Oauth client.
+This app provides API backend for the Middlesex' Sobmonitor app. Anyone eligible to login to the Middlesex Uniersity system can create an app which would consume this API. See [API Docs](#api-docs) for more information how to comsume the API.
 
-## Contents
+## Full documentation
 
-- [Features](#features)
-- [Consuming the API](#consuming-the-api)
+Full api documentation can be found [here](#api-docs).
 
-## Features
+## Contribution
 
-### For students
+Feel free to open new issues or make pull requests.
 
-Viewing sobs, filtering them, viewing observed.
-
-### For staff
-
-Sob management based on assigned permissions.
-
-## Consuming the API
-
-Tutorial and examples will be supplied soon.

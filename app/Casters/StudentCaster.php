@@ -19,10 +19,13 @@ class StudentCaster extends Caster
             'tutor' => function (Student $student) {
                 return $student->tutor ? $student->tutor()->cast() : [];
             },
+            'network_name' => 'name',
             'firstname' => 'first_name',
             'lastname' => 'last_name',
             'email',
             'student_number',
+            'visa' => '!type:bool',
+            'foundation' => '!type:bool',
         ];
     }
 }

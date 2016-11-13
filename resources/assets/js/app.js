@@ -29,10 +29,9 @@ Vue.component(
 );
 
 Vue.component(
-  'sobs',
-  require('./components/Sobs.vue')
+  'snippet',
+  require('./components/Snippet.vue')
 );
-
 
 const app = new Vue({
   el: '#app'

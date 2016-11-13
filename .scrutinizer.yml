@@ -4,16 +4,12 @@ filter:
 
 checks:
     php:
-        useless_calls: true
-        use_statement_alias_conflict: true
         unused_variables: true
         unused_properties: true
         unused_parameters: true
         unused_methods: true
         unreachable_code: true
         too_many_arguments: true
-        return_doc_comments: true
-        return_doc_comment_if_not_inferrable: true
         parse_doc_comments: true
         parameter_doc_comments: true
         param_doc_comment_if_not_inferrable: true
@@ -33,16 +29,13 @@ checks:
         no_debug_code: true
         no_commented_out_code: true
         missing_arguments: true
-        method_calls_on_non_object: true
         line_length:
             max_length: '200'
         encourage_single_quotes: true
         deprecated_code_usage: true
-        comparison_always_same_result: true
         code_rating: true
         check_method_contracts:
             verify_interface_like_constraints: true
-            verify_documented_constraints: true
             verify_parent_constraints: true
         avoid_todo_comments: true
         avoid_superglobals: true

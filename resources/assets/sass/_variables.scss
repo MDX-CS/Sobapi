@@ -1,16 +1,16 @@
 
 // Body
-$body-bg: #f5f8fa;
+$body-bg: #fff;
 
 // Borders
-$laravel-border-color: darken($body-bg, 10%);
-$list-group-border: $laravel-border-color;
-$navbar-default-border: $laravel-border-color;
-$panel-default-border: $laravel-border-color;
-$panel-inner-border: $laravel-border-color;
+$sobapi-border-color: darken($body-bg, 10%);
+$list-group-border: $sobapi-border-color;
+$navbar-default-border: $sobapi-border-color;
+$panel-default-border: $sobapi-border-color;
+$panel-inner-border: $sobapi-border-color;
 
 // Brands
-$brand-primary: #3097D1;
+$brand-primary: #FF7574;
 $brand-info: #8eb4cb;
 $brand-success: #2ab27b;
 $brand-warning: #cbb956;
@@ -34,4 +34,5 @@ $input-border-focus: lighten($brand-primary, 25%);
 $input-color-placeholder: lighten($text-color, 30%);
 
 // Panels
-$panel-default-heading-bg: #fff;
+$panel-default-heading-bg: #f5f8fa;
+$panel-bg: #fff;

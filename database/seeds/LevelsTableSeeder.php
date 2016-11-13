@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Level;
 use Illuminate\Database\Seeder;
 
 class LevelsTableSeeder extends Seeder
@@ -11,15 +12,15 @@ class LevelsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Level::class)->create([
+        factory(Level::class)->create([
             'level' => 'Threshold',
         ]);
 
-        factory(App\Models\Level::class)->create([
+        factory(Level::class)->create([
             'level' => 'Typical',
         ]);
 
-        factory(App\Models\Level::class)->create([
+        factory(Level::class)->create([
             'level' => 'Excellent',
         ]);
     }

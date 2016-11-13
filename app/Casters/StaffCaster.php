@@ -4,7 +4,7 @@ namespace App\Casters;
 
 use Koch\Casters\Caster;
 
-class LessonCaster extends Caster
+class StaffCaster extends Caster
 {
     /**
      * Returns the cast rules.
@@ -14,11 +14,10 @@ class LessonCaster extends Caster
     protected function castRules()
     {
         return [
-            'crn_id' => '!name:id|type:int',
-            'room',
-            'day',
-            'starttime' => 'start_time',
-            'endtime' => 'end_time',
+            'staff_id' => '!name:id|type:int',
+            'firstname' => 'first_name',
+            'lastname' => 'last_name',
+            'email',
         ];
     }
 }

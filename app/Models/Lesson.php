@@ -41,4 +41,14 @@ class Lesson extends Model
         return $this->belongsToMany(Student::class, 'attendance', 'crn', 'studid')
             ->withPivot('week', 'loginid', 'record_timestamp');
     }
+
+    /**
+     * Specifies the belongs to many relationship.
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function inTimetable()
+    {
+        return $this->belongsToMany(Student::class, 'student_timetable', 'crn', 'student_number');
+    }
 }

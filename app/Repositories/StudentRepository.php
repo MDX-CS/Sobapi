@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\Level;
-use App\Filters\LevelFilter;
+use App\Models\Student;
+use App\Filters\StudentFilter;
 
-class LevelRepository extends Repository
+class StudentRepository extends Repository
 {
     /**
      * Class constructor.
      *
-     * @param  \App\Filters\LevelFilter  $filter
-     * @param  \App\Models\Level  $model
+     * @param  \App\Filters\StudentFilter  $filter
+     * @param  \App\Models\Student  $model
      * @return void
      */
-    public function __construct(LevelFilter $filter, Level $model)
+    public function __construct(StudentFilter $filter, Student $model)
     {
         parent::__construct($filter, $model);
     }
@@ -27,7 +27,7 @@ class LevelRepository extends Repository
     public function storeRules()
     {
         return [
-            'level' => 'required|min:3',
+            //
         ];
     }
 
@@ -39,7 +39,7 @@ class LevelRepository extends Repository
     public function updateRules()
     {
         return [
-            'level' => 'min:3',
+            //
         ];
     }
 }

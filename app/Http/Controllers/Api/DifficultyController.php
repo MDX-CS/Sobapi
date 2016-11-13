@@ -44,13 +44,8 @@ class DifficultyController extends Controller
     /**
      * Associates given sob with given level.
      *
-<<<<<<< HEAD
      * @param  \App\Models\Level|null  $level
      * @param  \App\Models\Sob|null  $sob
-=======
-     * @param  \App\Models\Level  $level
-     * @param  \App\Models\Sob  $sob
->>>>>>> 5f05e8af4337735cc1bc6b12a8ec9f48f9163e09
      * @return \Illuminate\Http\Response
      */
     public function update(Level $level = null, Sob $sob = null)

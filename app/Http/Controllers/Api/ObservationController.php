@@ -47,13 +47,8 @@ class ObservationController extends Controller
     /**
      * Toggles observation status for the given sob in relation with the given student.
      *
-<<<<<<< HEAD
      * @param  \App\Models\Student|null  $student
      * @param  \App\Models\Sob|null  $sob
-=======
-     * @param  \App\Models\Student  $student
-     * @param  \App\Models\Sob  $sob
->>>>>>> 5f05e8af4337735cc1bc6b12a8ec9f48f9163e09
      * @return \Illuminate\Http\Response
      */
     public function update(Student $student = null, Sob $sob = null)

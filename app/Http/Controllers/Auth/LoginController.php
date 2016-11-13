@@ -55,12 +55,6 @@ class LoginController extends Controller
     {
         $this->validateLogin($request);
 
-<<<<<<< HEAD
-=======
-        // If the class is using the ThrottlesLogins trait, we can automatically throttle
-        // the login attempts for this application. We'll key this by the username and
-        // the IP address of the client making these requests into this application.
->>>>>>> 5f05e8af4337735cc1bc6b12a8ec9f48f9163e09
         if ($this->hasTooManyLoginAttempts($request)) {
             $this->fireLockoutEvent($request);
 
@@ -73,12 +67,6 @@ class LoginController extends Controller
             return $this->sendLoginResponse($request);
         }
 
-<<<<<<< HEAD
-=======
-        // If the login attempt was unsuccessful we will increment the number of attempts
-        // to login and redirect the user back to the login form. Of course, when this
-        // user surpasses their maximum number of attempts they will get locked out.
->>>>>>> 5f05e8af4337735cc1bc6b12a8ec9f48f9163e09
         $this->incrementLoginAttempts($request);
 
         return $this->sendFailedLoginResponse($request);
@@ -121,24 +109,7 @@ class LoginController extends Controller
 
         $this->clearLoginAttempts($request);
 
-<<<<<<< HEAD
         return redirect()->intended($this->redirectPath());
-=======
-        return $this->authenticated($request, $this->guard()->user())
-                ?: redirect()->intended($this->redirectPath());
-    }
-
-    /**
-     * The user has been authenticated.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Illuminate\Contracts\Auth\Authenticatable|null  $user
-     * @return mixed
-     */
-    protected function authenticated(Request $request, $user)
-    {
-        //
->>>>>>> 5f05e8af4337735cc1bc6b12a8ec9f48f9163e09
     }
 
     /**

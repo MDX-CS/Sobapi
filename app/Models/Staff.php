@@ -2,8 +2,13 @@
 
 namespace App\Models;
 
+use Koch\Casters\Behavior\Castable;
+use Koch\Filters\Behavior\Filterable;
+
 class Staff extends User
 {
+    use Filterable, Castable;
+
     /**
      * The table name.
      *
@@ -36,7 +41,7 @@ class Staff extends User
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function students()
+    public function tutees()
     {
         return $this->hasMany(Student::class, 'staff_id', 'staff_id');
     }

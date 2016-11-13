@@ -20,10 +20,9 @@ class WeekPolicy
     /**
      * Determine whether the user can view the Week.
      *
-     * @param  \App\Models\User  $user
      * @return bool
      */
-    public function view(User $user)
+    public function view()
     {
         return true;
     }
@@ -31,10 +30,9 @@ class WeekPolicy
     /**
      * Determine whether the user can manage Weeks.
      *
-     * @param  \App\Models\User  $user
      * @return bool
      */
-    public function manage(User $user)
+    public function manage()
     {
         return false;
     }

@@ -24,7 +24,7 @@ class AttendanceController extends Controller
     /**
      * Show all attendance of given student.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Student|null  $student
      * @return \Illuminate\Http\Response
      */
     public function index(Student $student = null)
@@ -47,8 +47,8 @@ class AttendanceController extends Controller
     /**
      * Toggles attendance status for the given lesson in relation with the given student.
      *
-     * @param  \App\Models\Student  $student
-     * @param  \App\Models\Lesson  $attendance
+     * @param  \App\Models\Student|null  $student
+     * @param  \App\Models\Lesson|null  $attendance
      * @return \Illuminate\Http\Response
      */
     public function update(Student $student = null, Lesson $attendance = null)

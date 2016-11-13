@@ -21,10 +21,9 @@ class LessonPolicy
     /**
      * Determine whether the user can view the lesson.
      *
-     * @param  \App\Models\User  $user
      * @return bool
      */
-    public function view(User $user)
+    public function view()
     {
         return true;
     }

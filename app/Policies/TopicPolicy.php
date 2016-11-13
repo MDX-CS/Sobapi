@@ -20,10 +20,9 @@ class TopicPolicy
     /**
      * Determine whether the user can view the Topic.
      *
-     * @param  \App\Models\User  $user
      * @return bool
      */
-    public function view(User $user)
+    public function view()
     {
         return true;
     }

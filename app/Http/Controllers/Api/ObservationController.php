@@ -24,7 +24,7 @@ class ObservationController extends Controller
     /**
      * Shows all the sobs assigned to a student.
      *
-     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Student|null  $student
      * @return \Illuminate\Http\Response
      */
     public function index(Student $student = null)
@@ -47,8 +47,8 @@ class ObservationController extends Controller
     /**
      * Toggles observation status for the given sob in relation with the given student.
      *
-     * @param  \App\Models\Student  $student
-     * @param  \App\Models\Sob  $sob
+     * @param  \App\Models\Student|null  $student
+     * @param  \App\Models\Sob|null  $sob
      * @return \Illuminate\Http\Response
      */
     public function update(Student $student = null, Sob $sob = null)

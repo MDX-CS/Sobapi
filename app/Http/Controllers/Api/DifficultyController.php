@@ -24,7 +24,7 @@ class DifficultyController extends Controller
     /**
      * Show all sobs under given level.
      *
-     * @param  \App\Models\Level  $level
+     * @param  \App\Models\Level|null  $level
      * @return \Illuminate\Http\Response
      */
     public function index(Level $level = null)
@@ -44,8 +44,8 @@ class DifficultyController extends Controller
     /**
      * Associates given sob with given level.
      *
-     * @param  \App\Models\Level  $level
-     * @param  \App\Models\Sob  $sob
+     * @param  \App\Models\Level|null  $level
+     * @param  \App\Models\Sob|null  $sob
      * @return \Illuminate\Http\Response
      */
     public function update(Level $level = null, Sob $sob = null)

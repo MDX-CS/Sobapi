@@ -6,7 +6,6 @@ checks:
     php:
         verify_argument_usable_as_reference: true
         verify_access_scope_valid: true
-        variable_existence: true
         useless_calls: true
         use_statement_alias_conflict: true
         use_self_instead_of_fqcn: true
@@ -24,7 +23,6 @@ checks:
         simplify_boolean_return: true
         side_effects_or_types: true
         security_vulnerabilities: true
-        return_in_constructor: false
         return_doc_comments: true
         return_doc_comment_if_not_inferrable: true
         require_scope_for_properties: true
@@ -73,7 +71,6 @@ checks:
         no_duplicate_arguments: true
         no_debug_code: true
         no_commented_out_code: true
-        more_specific_types_in_doc_comments: true
         missing_arguments: true
         method_calls_on_non_object: true
         line_length:

@@ -23,7 +23,7 @@ class CategoryController extends Controller
 
     /**
      * Show all sobs under given level.
-     *
+
      * @param  \App\Models\Topic|null  $topic
      * @return \Illuminate\Http\Response
      */
@@ -44,8 +44,13 @@ class CategoryController extends Controller
     /**
      * Associates given sob with given level.
      *
+<<<<<<< HEAD
      * @param  \App\Models\Topic|null  $topic
      * @param  \App\Models\Sob|null  $sob
+=======
+     * @param  \App\Models\Topic  $topic
+     * @param  \App\Models\Sob  $sob
+>>>>>>> 5f05e8af4337735cc1bc6b12a8ec9f48f9163e09
      * @return \Illuminate\Http\Response
      */
     public function update(Topic $topic = null, Sob $sob = null)

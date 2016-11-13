@@ -24,7 +24,11 @@ class TimetableController extends Controller
     /**
      * Shows the given student's timetable.
      *
+<<<<<<< HEAD
      * @param  \App\Models\Student|null  $student
+=======
+     * @param  \App\Models\Student  $student
+>>>>>>> 5f05e8af4337735cc1bc6b12a8ec9f48f9163e09
      * @return \Illuminate\Http\Response
      */
     public function index(Student $student = null)
@@ -44,8 +48,13 @@ class TimetableController extends Controller
     /**
      * Adds given lesson to given student's timetable.
      *
+<<<<<<< HEAD
      * @param  \App\Models\Student|null  $student
      * @param  \App\Models\Lesson|null  $timetable
+=======
+     * @param  \App\Models\Student  $student
+     * @param  \App\Models\Lesson  $timetable
+>>>>>>> 5f05e8af4337735cc1bc6b12a8ec9f48f9163e09
      * @return \Illuminate\Http\Response
      */
     public function update(Student $student = null, Lesson $timetable = null)

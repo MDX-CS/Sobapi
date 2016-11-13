@@ -15,9 +15,12 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         \App\Models\Sob::class => \App\Policies\SobPolicy::class,
-        \App\Models\Lesson::class => \App\Policies\LessonPolicy::class,
+        \App\Models\Week::class => \App\Policies\WeekPolicy::class,
         \App\Models\Level::class => \App\Policies\LevelPolicy::class,
+        \App\Models\Staff::class => \App\Policies\StaffPolicy::class,
         \App\Models\Topic::class => \App\Policies\TopicPolicy::class,
+        \App\Models\Lesson::class => \App\Policies\LessonPolicy::class,
+        \App\Models\Student::class => \App\Policies\StudentPolicy::class,
     ];
 
     /**

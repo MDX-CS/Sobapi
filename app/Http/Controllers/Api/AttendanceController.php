@@ -48,18 +48,18 @@ class AttendanceController extends Controller
      * Toggles attendance status for the given lesson in relation with the given student.
      *
      * @param  \App\Models\Student  $student
-     * @param  \App\Models\Lesson  $lesson
+     * @param  \App\Models\Lesson  $attendance
      * @return \Illuminate\Http\Response
      */
-    public function update(Student $student = null, Lesson $lesson = null)
+    public function update(Student $student = null, Lesson $attendance = null)
     {
         $this->authorize('attend', $this->repository->modelName());
 
-        if (! $lesson->exists || ! $student->exists) {
+        if (! $attendance->exists || ! $student->exists) {
             return $this->responder->notFound()->send();
         }
 
-        $student->toggleAttendance($lesson);
+        $student->toggleAttendance($attendance);
 
         return $this->responder->accepted()->send();
     }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAttendanceTable extends Migration
+class CreateStudentTimetableTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateAttendanceTable extends Migration
      */
     public function up()
     {
-        Schema::create('attendance', function (Blueprint $table) {
-            $table->increments('attendance_id');
+        Schema::create('student_timetable', function (Blueprint $table) {
+            $table->increments('session_id');
             $table->integer('crn')->index();
-            $table->integer('week')->index();
-            $table->integer('studid')->index();
-            $table->integer('loginid')->index();
-            $table->timestamp('record_timestamp');
+            $table->integer('student_number')->index();
         });
     }
 
@@ -30,6 +27,6 @@ class CreateAttendanceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attendance');
+        Schema::dropIfExists('student_timetable');
     }
 }

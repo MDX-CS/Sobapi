@@ -13,7 +13,7 @@ Route::resource('sobs', 'SobController', [
     'except' => ['create', 'edit'],
 ]);
 
-Route::resource('students.sobs', 'ObsevationController', [
+Route::resource('students.sobs', 'ObservationController', [
     'only' => ['index', 'update'],
 ]);
 
@@ -38,7 +38,11 @@ Route::resource('lessons', 'LessonController', [
     'except' => ['create', 'edit'],
 ]);
 
-Route::resource('students.lessons', 'AttendanceController', [
+Route::resource('students.attendance', 'AttendanceController', [
+    'only' => ['index', 'update'],
+]);
+
+Route::resource('students.timetable', 'TimetableController', [
     'only' => ['index', 'update'],
 ]);
 
@@ -65,5 +69,44 @@ Route::resource('levels', 'LevelController', [
 */
 
 Route::resource('topics', 'TopicController', [
+    'except' => ['create', 'edit'],
+]);
+
+/*
+|--------------------------------------------------------------------------
+| Student resource routes
+|--------------------------------------------------------------------------
+|
+| All routes associated with the resource are specified below.
+|
+*/
+
+Route::resource('students', 'StudentController', [
+    'except' => ['create', 'edit'],
+]);
+
+/*
+|--------------------------------------------------------------------------
+| Staff resource routes
+|--------------------------------------------------------------------------
+|
+| All routes associated with the resource are specified below.
+|
+*/
+
+Route::resource('staff', 'StaffController', [
+    'except' => ['create', 'edit'],
+]);
+
+/*
+|--------------------------------------------------------------------------
+| Week resource routes
+|--------------------------------------------------------------------------
+|
+| All routes associated with the resource are specified below.
+|
+*/
+
+Route::resource('weeks', 'WeekController', [
     'except' => ['create', 'edit'],
 ]);

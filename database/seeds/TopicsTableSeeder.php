@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Topic;
 use Illuminate\Database\Seeder;
 
 class TopicsTableSeeder extends Seeder
@@ -11,19 +12,19 @@ class TopicsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Models\Topic::class)->create([
+        factory(Topic::class)->create([
             'topic' => 'Synoptics',
         ]);
 
-        factory(App\Models\Topic::class)->create([
+        factory(Topic::class)->create([
             'topic' => 'Programming',
         ]);
 
-        factory(App\Models\Topic::class)->create([
+        factory(Topic::class)->create([
             'topic' => 'Design',
         ]);
 
-        factory(App\Models\Topic::class)->create([
+        factory(Topic::class)->create([
             'topic' => 'Hardware',
         ]);
     }

@@ -2,19 +2,19 @@
 
 namespace App\Repositories;
 
-use App\Models\Level;
-use App\Filters\LevelFilter;
+use App\Models\Week;
+use App\Filters\WeekFilter;
 
-class LevelRepository extends Repository
+class WeekRepository extends Repository
 {
     /**
      * Class constructor.
      *
-     * @param  \App\Filters\LevelFilter  $filter
-     * @param  \App\Models\Level  $model
+     * @param  \App\Filters\WeekFilter  $filter
+     * @param  \App\Models\Week  $model
      * @return void
      */
-    public function __construct(LevelFilter $filter, Level $model)
+    public function __construct(WeekFilter $filter, Week $model)
     {
         parent::__construct($filter, $model);
     }
@@ -27,7 +27,7 @@ class LevelRepository extends Repository
     public function storeRules()
     {
         return [
-            'level' => 'required|min:3',
+            //
         ];
     }
 
@@ -39,7 +39,7 @@ class LevelRepository extends Repository
     public function updateRules()
     {
         return [
-            'level' => 'min:3',
+            //
         ];
     }
 }

@@ -41,6 +41,17 @@ class LessonPolicy
     }
 
     /**
+     * Determine whether the user can attend lessons.
+     *
+     * @param  \App\Models\User  $user
+     * @return bool
+     */
+    public function changeTimetable(User $user)
+    {
+        return $user->capabilities->contains(5);
+    }
+
+    /**
      * Determine whether the user can check its own attendance.
      *
      * @param  \App\Models\User  $user

@@ -13,23 +13,27 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
-
 Vue.component(
-    'passport-clients',
-    require('./components/passport/Clients.vue')
+  'passport-clients',
+  require('./components/passport/Clients.vue')
 );
 
 Vue.component(
-    'passport-authorized-clients',
-    require('./components/passport/AuthorizedClients.vue')
+  'passport-authorized-clients',
+  require('./components/passport/AuthorizedClients.vue')
 );
 
 Vue.component(
-    'passport-personal-access-tokens',
-    require('./components/passport/PersonalAccessTokens.vue')
+  'passport-personal-access-tokens',
+  require('./components/passport/PersonalAccessTokens.vue')
 );
+
+Vue.component(
+  'sobs',
+  require('./components/Sobs.vue')
+);
+
 
 const app = new Vue({
-    el: '#app'
+  el: '#app'
 });

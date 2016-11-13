@@ -1,5 +1,7 @@
 <?php
 
+use Carbon\Carbon;
+
 /*
 |--------------------------------------------------------------------------
 | Model Factories
@@ -12,11 +14,77 @@
 */
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
-$factory->define(App\User::class, function (Faker\Generator $faker) {
+$factory->define(App\Models\Staff::class, function (Faker\Generator $faker) {
     return [
-        'name' => $faker->name,
+        'network_name' => $faker->username,
+        'firstname' => $faker->firstname,
+        'lastname' => $faker->lastname,
+        'password' => bcrypt('secret'),
+        'enc_id' => str_random(20),
+        'email' => $faker->unique()->safeEmail,
+    ];
+});
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Student::class, function (Faker\Generator $faker) {
+    return [
+        'staff_id' => 1,
+        'network_name' => $faker->username,
+        'firstname' => $faker->firstname,
+        'lastname' => $faker->lastname,
         'email' => $faker->unique()->safeEmail,
         'password' => bcrypt('secret'),
-        'remember_token' => str_random(10),
+        'student_number' => $faker->postcode,
+        'student_status' => 1,
+        'enc_id' => str_random(20),
+        'last_login' => Carbon::now(),
+        'last_activity' => Carbon::now(),
+    ];
+});
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Sob::class, function (Faker\Generator $faker) {
+    return [
+        'level_id' => rand(1, 4),
+        'topic_id' => 1,
+        'sob' => $faker->sentence,
+        'url' => $faker->url,
+        'sob_notes' => $faker->paragraph,
+        'expected_start_date' => $faker->dateTimeThisYear(),
+        'expected_completion_date' => $faker->dateTimeThisYear(),
+    ];
+});
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Capability::class, function (Faker\Generator $faker) {
+    return [
+        'capability_description' => $faker->sentence,
+    ];
+});
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Lesson::class, function (Faker\Generator $faker) {
+    return [
+        'crn' => $faker->numberBetween(1000, 10000),
+        'oldcrn' => $faker->numberBetween(1000, 10000),
+        'codetype' => $faker->word,
+        'day' => $faker->dayOfWeek,
+        'room' => $faker->city,
+        'starttime' => $faker->time(),
+        'endtime' => $faker->time(),
+    ];
+});
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Level::class, function (Faker\Generator $faker) {
+    return [
+        'level' => $faker->word,
+    ];
+});
+
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+$factory->define(App\Models\Topic::class, function (Faker\Generator $faker) {
+    return [
+        'topic' => $faker->word,
     ];
 });

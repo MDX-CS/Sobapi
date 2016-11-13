@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Staff;
+use App\Models\Student;
 use Illuminate\Database\Seeder;
 
 class UsersTableSeeder extends Seeder
@@ -11,12 +13,23 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\User::class)->create([
-            'email' => 'kouks.koch@gmail.com',
-            'name' => 'Pavel Koch',
-            'password' => bcrypt('secret'),
+        // factory(Student::class)->create([
+        //     'email' => 'kouks.koch@gmail.com',
+        //     'firstname' => 'Pavel',
+        //     'lastname' => 'Koch',
+        //     'network_name' => env('LDAP_USERNAME', 'user'),
+        //     'password' => bcrypt(env('LDAP_PASSWORD', 'secret')),
+        // ]);
+
+        factory(Staff::class)->create([
+            'email' => 'kouks@gmail.com',
+            'firstname' => 'Super',
+            'lastname' => 'User',
+            'network_name' => env('LDAP_USERNAME', 'user'),
+            'password' => bcrypt(env('LDAP_PASSWORD', 'secret')),
         ]);
 
-        factory(App\User::class, 5)->create();
+        factory(Staff::class, 5)->create();
+        factory(Student::class, 5)->create();
     }
 }

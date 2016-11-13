@@ -8,7 +8,7 @@
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
-                    Welcome!
+                    {{ auth()->user()->capabilities->implode('capability_description', ', ') }}
                 </div>
             </div>
 

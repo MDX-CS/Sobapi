@@ -52,4 +52,14 @@ class SobRepository extends Repository
             'expected_completion_date' => 'date|after:expected_start_date',
         ];
     }
+
+    /**
+     * The database key for this resource.
+     *
+     * @return array
+     */
+    public function databaseKey()
+    {
+        return 'sob_id';
+    }
 }

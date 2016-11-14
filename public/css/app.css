@@ -5767,7 +5767,20 @@ button.close {
     display: none !important; } }
 
 .navbar.navbar-static-top {
-  border-top: 7px solid #FF7574; }
+  border-top: 7px solid #FF7574;
+  min-height: 58px; }
+
+html, body, #app {
+  height: 100%; }
+
+#app {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+  -webkit-box-pack: justify;
+  justify-content: space-between; }
 
 h1 {
   font-weight: 200;

@@ -42,4 +42,14 @@ class TopicRepository extends Repository
             'topic' => 'min:3',
         ];
     }
+
+    /**
+     * The database key for this resource.
+     *
+     * @return array
+     */
+    public function databaseKey()
+    {
+        return 'topic_id';
+    }
 }

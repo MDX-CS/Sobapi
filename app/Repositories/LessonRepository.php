@@ -42,4 +42,14 @@ class LessonRepository extends Repository
             //
         ];
     }
+
+    /**
+     * The database key for this resource.
+     *
+     * @return array
+     */
+    public function databaseKey()
+    {
+        return 'lesson_id';
+    }
 }

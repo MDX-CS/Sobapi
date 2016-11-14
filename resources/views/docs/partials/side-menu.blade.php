@@ -20,8 +20,8 @@
             <a href="{{ url('/docs/requests') }}">Requests</a>
         </li>
 
-        <li role="presentation" {{ $current == 'errors' ? 'class=active' : '' }}>
-            <a href="{{ url('/docs/error-messages') }}">Error messages</a>
+        <li role="presentation" {{ $current == 'responses' ? 'class=active' : '' }}>
+            <a href="{{ url('/docs/responses') }}">Responses</a>
         </li>
     </ul>
 

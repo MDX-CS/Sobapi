@@ -42,4 +42,14 @@ class LevelRepository extends Repository
             'level' => 'min:3',
         ];
     }
+
+    /**
+     * The database key for this resource.
+     *
+     * @return array
+     */
+    public function databaseKey()
+    {
+        return 'level_id';
+    }
 }

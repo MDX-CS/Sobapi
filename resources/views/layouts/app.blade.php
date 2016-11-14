@@ -28,7 +28,7 @@
 
                     <div class="col-xs-12">
                         <span class="copy">
-                            sobapi made for middlesex university by <a href="https://pavelkoch.me">@kouks</a>
+                            sobapi made for middlesex university by <a href="https://pavelkoch.me">kouks</a>
                         </span>
                     </div>
                 </div>

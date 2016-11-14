@@ -10,6 +10,17 @@
 
 .navbar.navbar-static-top {
   border-top: 7px solid $brand-primary;
+  min-height: 58px;
+}
+
+html, body, #app {
+  height: 100%;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 h1 {

@@ -58,4 +58,14 @@ class StudentRepository extends Repository
             'foundation' => 'numeric',
         ];
     }
+
+    /**
+     * The database key for this resource.
+     *
+     * @return array
+     */
+    public function databaseKey()
+    {
+        return 'student_id';
+    }
 }

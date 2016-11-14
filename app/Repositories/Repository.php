@@ -61,7 +61,7 @@ abstract class Repository
      */
     public function find($id)
     {
-        return $this->model->find($id);
+        return $this->model->where($this->databaseKey(), $id)->first();
     }
 
     /**
@@ -97,4 +97,11 @@ abstract class Repository
      * @return array
      */
     abstract public function updateRules();
+
+    /**
+     * The database key for given resource
+     *
+     * @return string
+     */
+    abstract public function databaseKey();
 }

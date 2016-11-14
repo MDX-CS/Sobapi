@@ -46,21 +46,24 @@
 
                     <snippet>
 {
-    "id": 1,
-    "tutor": {
+    "data": {
         "id": 1,
-        "first_name": "Jon",
+        "tutor": {
+            "id": 1,
+            "first_name": "Jon",
+            "last_name": "Doe",
+            "email": "jon.doe@example.com",
+        },
+        "name": "jd123",
+        "first_name": "Jane",
         "last_name": "Doe",
-        "email": "jon.doe@example.com",
-    },
-    "name": "jd123",
-    "first_name": "Jane",
-    "last_name": "Doe",
-    "email": "jane.doe@example.com",
-    "student_number": "M00123456",
-    "visa": false,
-    "foundation": false
+        "email": "jane.doe@example.com",
+        "student_number": "M00123456",
+        "visa": false,
+        "foundation": false
+    }
 }
+
                     </snippet>
 
                     <p>Note that when requesting all resources, an array of these objects will rather be returned.</p>
@@ -161,7 +164,7 @@
                             </tr>
                             <tr>
                                 <td><code>password</code></td>
-                                <td><code>{{ str_limit(bcrypt('secret'), 10) }}</code></td>
+                                <td><code>$2y$10$7TH...</code></td>
                                 <td>Required</td>
                                 <td>The user's university password</td>
                             </tr>
@@ -188,15 +191,7 @@
 
                     <h4>Response</h4>
 
-                    <p>On success, this api call returns the <code>201 created</code> status code and following json:</p>
-
-                    <snippet>
-{
-    "sucess": {
-        "message": "Your entry was successfully stored."
-    }
-}
-                    </snippet>
+                    <p>See documentation on <a href="{{ url('/docs/responses') }}">http responses</a>, the <a href=" {{url('/docs/responses#creating') }}">successful creating</a> one in particular.</p>
 
                     <h3 id="updating">Updating</h3>
 
@@ -208,30 +203,55 @@
 
                     <h4>Response</h4>
 
-                    <p>On success, this api call returns the <code>202 accepted</code> status code and following json:</p>
-
-                    <snippet>
-{
-    "sucess": {
-        "message": "Your entry was successfully edited."
-    }
-}
-                    </snippet>
+                    <p>See documentation on <a href="{{ url('/docs/responses') }}">http responses</a>, the <a href=" {{url('/docs/responses#updating') }}">successful updating</a> one in particular.</p>
 
                     <h3 id="deleting">Deleting</h3>
 
                     <p>Upon sending a <code>DELETE</code> request to the <code>/api/students/{student}</code> uri, you will delete the <code>student</code> under provided <code>id</code>. <strong>Note, however, that you need to be authorized to manage students to perform this action.</strong></p>
+
                     <h4>Response</h4>
 
-                    <p>On success, this api call returns the <code>202 accepted</code> status code and following json:</p>
+                    <p>See documentation on <a href="{{ url('/docs/responses') }}">http responses</a>, the <a href=" {{url('/docs/responses#deleting') }}">successful deleting</a> one in particular.</p>
 
-                    <snippet>
-{
-    "sucess": {
-        "message": "Resource successfully deleted."
-    }
-}
-                    </snippet>
+                    <h2 id="attendance">
+                        <a href="#attendance">Attendance</a>
+                    </h2>
+
+                    <h3 id="listing-attended-lessons">Listing attended lessons</h3>
+
+                    <p>By accessing the <code>/api/student/{student}/attendance</code> with a <code>GET|HEAD</code> request, you will be provided the given student's attendance. <strong>Note that in order to access this route, you either have to be authorized to manage students, or have to be logged in as the student whose timetable you are trying to access.</strong></p>
+
+                    <h4>Response</h4>
+
+                    <p>This call returns an array of <a href="{{ url('/docs/lesson#viewing') }}">lesson</a> json objects.</p>
+
+                    <h3 id="toggling-attendance">Toggling attendance</h3>
+
+                    <p>You can toggle student's attendance for a lesson by sending a <code>PUT|PATCH</code> request to the <code>/api/students/{student}/attendance/{lesson}</code> uri, where the <code>student</code> wildcard is the student's <code>id</code> and the <code>lesson</code> wildcard is the lesson <code>id</code> respectively. <strong>In orded to access this api call, you need to be authorized to toggle attendance.</strong></p>
+
+                    <h4>Response</h4>
+
+                    <p>See documentation on <a href="{{ url('/docs/responses') }}">http responses</a>, the <a href=" {{url('/docs/responses#updating') }}">successful updating</a> one in particular.</p>
+
+                    <h2 id="timetable">
+                        <a href="#timetable">Timetable</a>
+                    </h2>
+
+                    <h3 id="viewing-students-timetable">Viewing student's timetable</h3>
+
+                    <p>You are allowed to view student's timetable by sending a <code>GET|HEAD</code> request to the <code>api/students/{student}/timetable</code> uri, where the <code>students</code> wildcard stands for the student's <code>id</code>. <strong>Note, hoewever, that you have to be either authorized to manage students, or have to be logged in as the student whose timetable you are trying to access.</strong></p>
+
+                    <h4>Response</h4>
+
+                    <p>This call returns an array of <a href="{{ url('/docs/lesson#viewing') }}">lesson</a> json objects.</p>
+
+                    <h3 id="updating-timetable">Updating attendance</h3>
+
+                    <p>Upon sending the <code>PUT|PATCH</code> request to the <code>api/students/{student}/timetable/{lesson}</code> uri, you will toggle the given lesson's apperance on the student's timetable. Again, the <code>student</code> wildcard stands for the student's <code>id</code> and the <code>lesson</code> wildcard stands for the lesson's <code>id</code> respectively. <strong>Note that you have to be authorized to manage students to access this route.</strong></p>
+
+                    <h4>Response</h4>
+
+                    <p>See documentation on <a href="{{ url('/docs/responses') }}">http responses</a>, the <a href=" {{url('/docs/responses#updating') }}">successful updating</a> one in particular.</p>
                 </div>
             </div>
         </div>

@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('name', 'Student Resource&mdash;Documentation')
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -27,6 +29,11 @@
                         <ul>
                             <li><a href="#viewing-students-timetable">Viewing student's timetable</a></li>
                             <li><a href="#updating-timetable">Updating timetable</a></li>
+                        </ul>
+                        <li><a href="#observing-sobs">Observing sobs</a></li>
+                        <ul>
+                            <li><a href="#listing-observed-sobs">Listing observed sobs</a></li>
+                            <li><a href="#toggling-sob-observation">Toggling sob observation</a></li>
                         </ul>
                     </ul>
 
@@ -163,12 +170,6 @@
                                 <td>The user's email</td>
                             </tr>
                             <tr>
-                                <td><code>password</code></td>
-                                <td><code>$2y$10$7TH...</code></td>
-                                <td>Required</td>
-                                <td>The user's university password</td>
-                            </tr>
-                            <tr>
                                 <td><code>student_number</code></td>
                                 <td><code>M00123456</code></td>
                                 <td>Required,&nbsp;Unique</td>
@@ -252,6 +253,27 @@
                     <h4>Response</h4>
 
                     <p>See documentation on <a href="{{ url('/docs/responses') }}">http responses</a>, the <a href=" {{url('/docs/responses#updating') }}">successful updating</a> one in particular.</p>
+
+                    <h2 id="observing-sobs">
+                        <a href="#observing-sobs">Observing sobs</a>
+                    </h2>
+
+                    <h3 id="#listing-observed-sobs">Listing observed sobs</h3>
+
+                    <p>To view all the sobs observed by a student, simply send a <code>GET|HEAD</code> request to the <code>api/students/{student}/sobs</code> uri, where the <code>student</code> wildrcard stands for the student's <code>id</code>. <strong>Note that in order to make this api call, you need to either be authorized to observe sobs, or be logged in as the student whose sobs you are requesting.</strong></p>
+
+                    <h4>Response</h4>
+
+                    <p>When successful, this request will return an array of the <a href="{{ url('/docs/sob#viewing') }}">sob resource</a> objects.</p>
+
+                    <h3 id="#toggling-sob-observation">Toggling sob observation</h3>
+
+                    <p>Upon sending the <code>PUT|PATCH</code> request to the <code>api/students/{student}/sobs/{sob}</code> uri, you can toggle the observation status of a sob for the given student. Again, the <code>student</code> wildcard stands for the student's <code>id</code> and the <code>sob</code> wildcard stands for the sob <code>id</code>. <strong>You need to be authorized to observe sobs in order to access this route.</strong></p>
+
+                    <h4>Response</h4>
+
+                    <p>See documentation on <a href="{{ url('/docs/responses') }}">http responses</a>, the <a href=" {{url('/docs/responses#updating') }}">successful updating</a> one in particular.</p>
+
                 </div>
             </div>
         </div>

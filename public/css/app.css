@@ -5846,6 +5846,9 @@ ul.content-summary a {
 .documentation a:hover {
   text-decoration: none; }
 
+.documentation code {
+  color: #f40200; }
+
 footer.footer {
   background: #f5f8fa;
   padding: 30px 0;

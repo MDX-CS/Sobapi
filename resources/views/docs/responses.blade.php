@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('name', 'Responses&mdash;Documentation')
+
 @section('content')
 <div class="container">
     <div class="row">

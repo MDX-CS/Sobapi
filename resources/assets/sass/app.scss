@@ -110,6 +110,10 @@ ul.content-summary {
       text-decoration: none;
     }
   }
+
+  code {
+    color: darken($brand-primary, 25%);
+  }
 }
 
 footer.footer {

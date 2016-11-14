@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('name', 'List of Endpoints&mdash;Documentation')
+
 @section('content')
 <div class="container">
     <div class="row">
@@ -75,33 +77,56 @@
                             </tr>
                             <tr>
                                 <td><code>GET|HEAD</code></td>
-                                <td><code>api/students/{student}/attendance</code></td>
+                                <td>
+                                    <a href="{{ url('/docs/student#listing-attended-lessons') }}">
+                                        <code>api/students/{student}/attendance</code>
+                                    </a>
+                                </td>
                                 <td>Returns the given student's attendance</td>
                             </tr>
                             <tr>
                                 <td><code>PUT|PATCH</code></td>
-                                <td><code>api/students/{student}/attendance/{attendance}</code></td>
+                                <td>
+                                    <a href="{{ url('/docs/student#toggling-attendance') }}">
+                                        <code>api/students/{student}/attendance/{lesson}</code>
+                                    </a>
                                 <td>Toggles the attendance for given student</td>
                             </tr>
                             <tr>
                                 <td><code>GET|HEAD</code></td>
-                                <td><code>api/students/{student}/sobs</code></td>
-                                <td>Returns all sobs observed for given student</td>
-                            </tr>
-                            <tr>
-                                <td><code>PUT|PATCH</code></td>
-                                <td><code>api/students/{student}/sobs/{sob}</code></td>
-                                <td>Updates given sob</td>
-                            </tr>
-                            <tr>
-                                <td><code>GET|HEAD</code></td>
-                                <td><code>api/students/{student}/timetable</code></td>
+                                <td>
+                                    <a href="{{ url('/docs/student#updating-timetable') }}">
+                                        <code>api/students/{student}/timetable</code>
+                                    </a>
+                                </td>
                                 <td>Returns given student's timetable</td>
                             </tr>
                             <tr>
                                 <td><code>PUT|PATCH</code></td>
-                                <td><code>api/students/{student}/timetable/{timetable}</code></td>
+                                <td>
+                                    <a href="{{ url('/docs/student#viewing-students-timetable') }}">
+                                        <code>api/students/{student}/timetable/{lesson}</code>
+                                    </a>
+                                </td>
                                 <td>Toggle presence of a lesson on given student's timetable</td>
+                            </tr>
+                            <tr>
+                                <td><code>GET|HEAD</code></td>
+                                <td>
+                                    <a href="{{ url('/docs/student#listing-observed-sobs') }}">
+                                        <code>api/students/{student}/sobs</code>
+                                    </a>
+                                </td>
+                                <td>Returns all sobs observed for given student</td>
+                            </tr>
+                            <tr>
+                                <td><code>PUT|PATCH</code></td>
+                                <td>
+                                    <a href="{{ url('/docs/student#toggling-sob-observation') }}">
+                                        <code>api/students/{student}/sobs/{sob}</code>
+                                    </a>
+                                </td>
+                                <td>Updates given sob</td>
                             </tr>
                         </tbody>
                     </table>

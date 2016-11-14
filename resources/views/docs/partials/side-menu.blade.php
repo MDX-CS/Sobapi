@@ -3,7 +3,7 @@
 
     <ul class="nav nav-pills nav-stacked">
         <li role="presentation" {{ $current == 'oauth' ? 'class=active' : '' }}>
-            <a href="{{ url('/docs') }}">Setting up an Oauth Client</a>
+            <a href="{{ url('/docs') }}">Setting up an OAuth Client</a>
         </li>
 
         <li role="presentation" {{ $current == 'endpoints' ? 'class=active' : '' }}>

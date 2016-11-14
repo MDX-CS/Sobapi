@@ -10,7 +10,6 @@
   .key.string { color: #009688; }
   .key.bool { color: #8E24AA; }
   .key.typecast { color: #8E24AA; }
-  .key.tag { color: #EF9A9A; }
 </style>
 
 <script>
@@ -19,7 +18,7 @@ export default {
 
   data() {
     return {
-      parsed: '&#60?php\n\n',
+      parsed: '',
       replacements: [
         {
           pattern: /((["'])(?:(?=(\\?))\3.)*?\2)/g,
@@ -42,7 +41,7 @@ export default {
           class: 'object',
         },
         {
-          pattern: /(\$[a-zA-Z]+)/g,
+          pattern: /(\$[a-zA-Z_]+)/g,
           class: 'variable',
         },
         {
@@ -60,10 +59,6 @@ export default {
         {
           pattern: /( as| implements| instanceof|\secho|\sif| else| elseif|\swhile|\sfor|\sforeach|\sswitch|\scase|\ntrait|\ninterface|\sreturn|\sclass|\nnamespace| extends|\nuse|\spublic|\sprivate| function|\sprotected|\sfinal|\sabstract|new| @return| @param| @var)(?=\s|<)/g,
           class: 'keyword',
-        },
-        {
-          pattern: /(&#60\?php)(?=\n)/,
-          class: 'tag',
         },
       ],
     };

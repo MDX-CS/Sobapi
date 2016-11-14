@@ -5861,4 +5861,11 @@ footer.footer {
     text-transform: uppercase;
     font-size: 13px; }
 
+.beware {
+  border-radius: 5px;
+  padding: 20px;
+  background: #FF7574;
+  color: white;
+  margin: 0 0 11px; }
+
 /*# sourceMappingURL=app.css.map */

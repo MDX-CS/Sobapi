@@ -39,7 +39,7 @@
 
                         <ul class="dropdown-menu" role="menu">
                             <li><a href="{{ url('/apps') }}">Applications</a></li>
-                            <li><a href="{{ url('/tokens') }}">Personal tokens</a></li>
+                            <li><a href="{{ url('/tokens') }}">Personal Tokens</a></li>
                             <li class="divider"></li>
                             <li>
                                 <a href="{{ url('/logout') }}"

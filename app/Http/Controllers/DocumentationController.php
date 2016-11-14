@@ -31,6 +31,16 @@ class DocumentationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function requests()
+    {
+        return view('docs.requests');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function responses()
     {
         return view('docs.responses');

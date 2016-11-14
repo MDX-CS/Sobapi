@@ -60,12 +60,4 @@
     </ul>
 
     <hr>
-
-    <h4>Miscellaneous</h4>
-
-    <ul class="nav nav-pills nav-stacked">
-        <li role="presentation" {{ $current == 'tokens' ? 'class=active' : '' }}>
-            <a href="#">Personal Access Tokens</a>
-        </li>
-    </ul>
 </div>

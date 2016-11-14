@@ -28,6 +28,7 @@
                             <li><a href="#create-your-callback-script">Create your Callback Script</a></li>
                             <li><a href="#consume-the-api">Cosnsume the Api!</a></li>
                         </ul>
+                        <li><a href="#personal-access-tokens">Personal Access Tokens</a></li>
                     </ul>
 
                     <hr>
@@ -38,7 +39,7 @@
 
                     <h3 id="login-to-sobapi">Login to Sobapi</h3>
 
-                    <p>In order to make an OAuth client, you need to be eligible to login to the univerity system. Then simply hit the <strong>Login</strong> link in the upper left corner of the page and enter your university credentials.</p>
+                    <p>In order to make an OAuth client, you need to be eligible to login to the univerity system. Then simply hit the <strong>Login</strong> link in the upper right corner of the page and enter your university credentials.</p>
 
                     <h3 id="register-an-oauth-client">Register an OAuth Client</h3>
 
@@ -63,22 +64,24 @@ $query = http_build_query([
     'response_type' => 'code',
 ]);
 
-return header('Location: http://sobapi.dev:8000/oauth/authorize?' . $query);
+return header('Location: SOBAPI/oauth/authorize?' . $query);
                     </snippet>
 
-                    <p><strong>Make sure to replace the </strong><code>app_id</code> <strong>variable with you application id.</strong></p>
+                    <div class="beware">
+                        Make sure to replace the <code>app_id</code> variable with you application id.
+                    </div>
 
                     <p>This script is going to send a <code>GET</code> request to the <em>Sobapi</em> backend and try to authorize the application. It will make the user enter their credentials and allow the application to access their data. If all goes well, you will be redirected back to your application to the <strong>Redirect URL</strong> you specified. Suppose that for testing purposes we put in <code>http://test.app/callback.php</code>.</p>
 
 
                     <h3 id="create-your-callback-script">Create your Callback Script</h3>
 
-                    <p>Now it is time to handle the <em>Sobapi</em> response. Let's suppose we created a <code>callback.php</code> script on the test app. Put in following contents:</p>
+                    <p>Now it is time to handle the <em>Sobapi</em> response. Let's suppose we created a <code>callback.php</code> script on the test app and also pulled in the <code>GuzzleHttp</code> library. Put in following contents:</p>
 
                     <snippet>
-$http = new GuzzleHttp\Client;
+$client = new GuzzleHttp\Client;
 
-$response = $http->post('http://sobapi.dev/oauth/token', [
+$response = $client->post('SOBAPI/oauth/token', [
     'form_params' => [
         'grant_type' => 'authorization_code',
         'client_id' => $app_id,
@@ -88,8 +91,6 @@ $response = $http->post('http://sobapi.dev/oauth/token', [
     ],
 ]);
                     </snippet>
-
-                    <p><strong>I pulled in the </strong><code>GuzzleHttp</code> <strong>library to make our life easier when making http requests.</strong></p>
 
                     <p>Here we just grab the code that was returned from previous request and using that, your <code>app_id</code> and your <code>app_secret</code>, we are going to make a post request to the <em>Sobapi</em>, to receive the desired <strong>access token</strong>. Note that we are specifying the <code>redirect_uri</code> for security purposes.</p>
 
@@ -102,6 +103,14 @@ $response = $http->post('http://sobapi.dev/oauth/token', [
                     <h3 id="consume-the-api">Cosnsume the Api!</h3>
 
                     <p>You are now well prepared to consume the <em>Sobapi</em> on behalf of the logged in user. See documentation on how to make <a href="{{ url('/docs/requests') }}">proper requests</a> now.</p>
+
+                    <h2 id="personal-access-tokens">
+                        <a href="#personal-access-tokens">Personal Access Tokens</a>
+                    </h2>
+
+                    <p>For testing and personal purposes, you can issue a personal access token. Simply login and open the dropdown menu by clicking on your name in the upper right corner and select <em>Personal Tokens</em> link. All you need to do there is to click on the <em>Create New Token</em> button and enter its name. The access token will be shown <strong>only once</strong>. Simply copy the token and use it in the <code>Authorization</code> header.</p>
+
+                    <div class="beware">Note that the token will have the same access rights as the user who created it.</div>
                 </div>
             </div>
         </div>

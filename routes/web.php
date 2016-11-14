@@ -37,6 +37,7 @@ Route::group(['prefix' => 'docs'], function () {
     Route::get('', 'DocumentationController@index');
     Route::get('endpoints', 'DocumentationController@endpoints');
 
+    Route::get('requests', 'DocumentationController@requests');
     Route::get('responses', 'DocumentationController@responses');
 
     Route::get('student', 'DocumentationController@student');

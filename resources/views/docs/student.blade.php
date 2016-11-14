@@ -45,7 +45,7 @@
 
                     <h3 id="viewing">Viewing</h3>
 
-                    <p>You can view the list of all students by sending a <code>GET|HEAD</code> request to the <code>/api/students</code> uri. If you want to request just a specific student, send a <code>GET|HEAD</code> request to <code>api/students/{student}</code>, replacing the <code>student</code> wildcard with its <code>id</code>. You do not need any special authorization to perform this action, apart from have a valid access token.</p>
+                    <p>You can view the list of all students by sending a <code>GET|HEAD</code> request to the <code>api/students</code> uri. If you want to request just a specific student, send a <code>GET|HEAD</code> request to <code>api/students/{student}</code>, replacing the <code>student</code> wildcard with its <code>id</code>. You do not need any special authorization to perform this action, apart from have a valid access token.</p>
 
                     <h4>Response</h4>
 
@@ -124,7 +124,7 @@
 
                     <h3 id="creating">Creating</h3>
 
-                    <p>You are allowed to add new students by sending a <code>POST</code> requiest to the <code>/api/students</code> uri. <strong>Note, however, that you need to be authorized to manage students to perform this action.</strong></p>
+                    <p>You are allowed to add new students by sending a <code>POST</code> requiest to the <code>api/students</code> uri. <strong>Note, however, that you need to be authorized to manage students to perform this action.</strong></p>
 
                     <h4>Arguments</h4>
 
@@ -196,7 +196,7 @@
 
                     <h3 id="updating">Updating</h3>
 
-                    <p>You can edit students by sending a <code>PUT|PATCH</code> request to the <code>/api/students/{student}</code> uri. The <code>student</code> wildcard stands for the entry <code>id</code> <strong>Note, however, that you need to be authorized to manage students to perform this action.</strong></p>
+                    <p>You can edit students by sending a <code>PUT|PATCH</code> request to the <code>api/students/{student}</code> uri. The <code>student</code> wildcard stands for the entry <code>id</code> <strong>Note, however, that you need to be authorized to manage students to perform this action.</strong></p>
 
                     <h4>Arguments</h4>
 
@@ -208,7 +208,7 @@
 
                     <h3 id="deleting">Deleting</h3>
 
-                    <p>Upon sending a <code>DELETE</code> request to the <code>/api/students/{student}</code> uri, you will delete the <code>student</code> under provided <code>id</code>. <strong>Note, however, that you need to be authorized to manage students to perform this action.</strong></p>
+                    <p>Upon sending a <code>DELETE</code> request to the <code>api/students/{student}</code> uri, you will delete the <code>student</code> under provided <code>id</code>. <strong>Note, however, that you need to be authorized to manage students to perform this action.</strong></p>
 
                     <h4>Response</h4>
 
@@ -220,7 +220,7 @@
 
                     <h3 id="listing-attended-lessons">Listing attended lessons</h3>
 
-                    <p>By accessing the <code>/api/student/{student}/attendance</code> with a <code>GET|HEAD</code> request, you will be provided the given student's attendance. <strong>Note that in order to access this route, you either have to be authorized to manage students, or have to be logged in as the student whose timetable you are trying to access.</strong></p>
+                    <p>By accessing the <code>api/student/{student}/attendance</code> with a <code>GET|HEAD</code> request, you will be provided the given student's attendance. <strong>Note that in order to access this route, you either have to be authorized to manage students, or have to be logged in as the student whose timetable you are trying to access.</strong></p>
 
                     <h4>Response</h4>
 
@@ -228,7 +228,7 @@
 
                     <h3 id="toggling-attendance">Toggling attendance</h3>
 
-                    <p>You can toggle student's attendance for a lesson by sending a <code>PUT|PATCH</code> request to the <code>/api/students/{student}/attendance/{lesson}</code> uri, where the <code>student</code> wildcard is the student's <code>id</code> and the <code>lesson</code> wildcard is the lesson <code>id</code> respectively. <strong>In orded to access this api call, you need to be authorized to toggle attendance.</strong></p>
+                    <p>You can toggle student's attendance for a lesson by sending a <code>PUT|PATCH</code> request to the <code>api/students/{student}/attendance/{lesson}</code> uri, where the <code>student</code> wildcard is the student's <code>id</code> and the <code>lesson</code> wildcard is the lesson <code>id</code> respectively. <strong>In orded to access this api call, you need to be authorized to toggle attendance.</strong></p>
 
                     <h4>Response</h4>
 

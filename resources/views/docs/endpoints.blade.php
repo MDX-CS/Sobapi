@@ -10,7 +10,7 @@
                 @include('docs.partials.side-menu', ['current' => 'endpoints'])
 
                 <div class="col-md-8 col-md-offset-1 documentation">
-                    <h1>Listing of all available endpoints</h1>
+                    <h1>Listing of All Available Endpoints</h1>
 
                     <ul class="content-summary">
                         <li><a href="#student-routes">Student routes</a></li>
@@ -95,7 +95,7 @@
                             <tr>
                                 <td><code>GET|HEAD</code></td>
                                 <td>
-                                    <a href="{{ url('/docs/student#updating-timetable') }}">
+                                    <a href="{{ url('/docs/student#viewing-students-timetable') }}">
                                         <code>api/students/{student}/timetable</code>
                                     </a>
                                 </td>
@@ -104,7 +104,7 @@
                             <tr>
                                 <td><code>PUT|PATCH</code></td>
                                 <td>
-                                    <a href="{{ url('/docs/student#viewing-students-timetable') }}">
+                                    <a href="{{ url('/docs/student#updating-timetable') }}">
                                         <code>api/students/{student}/timetable/{lesson}</code>
                                     </a>
                                 </td>

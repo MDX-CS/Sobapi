@@ -5867,5 +5867,10 @@ footer.footer {
   background: #FF7574;
   color: white;
   margin: 0 0 11px; }
+  .beware a {
+    color: white;
+    text-decoration: underline; }
+    .beware a:hover {
+      color: white; }
 
 /*# sourceMappingURL=app.css.map */

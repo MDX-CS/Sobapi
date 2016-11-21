@@ -137,4 +137,13 @@ footer.footer {
   background: $brand-primary;
   color: white;
   margin: 0 0 11px;
+
+  a {
+    color: white;
+    text-decoration: underline;
+
+    &:hover {
+      color: white;
+    }
+  }
 }

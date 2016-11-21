@@ -58,6 +58,4 @@
             <a href="{{ url('/docs/week') }}">Week</a>
         </li>
     </ul>
-
-    <hr>
 </div>

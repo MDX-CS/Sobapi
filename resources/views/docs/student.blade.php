@@ -200,7 +200,7 @@
 
                     <h4>Arguments</h4>
 
-                    <p>As request parameters, you can send any of the fields mentioned above table.</p>
+                    <p>As request parameters, you can send any of the fields mentioned in the table above.</p>
 
                     <h4>Response</h4>
 

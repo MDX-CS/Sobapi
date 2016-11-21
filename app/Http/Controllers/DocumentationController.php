@@ -55,4 +55,64 @@ class DocumentationController extends Controller
     {
         return view('docs.student');
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function staff()
+    {
+        return view('docs.staff');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function sob()
+    {
+        return view('docs.sob');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function lesson()
+    {
+        return view('docs.lesson');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function level()
+    {
+        return view('docs.level');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function topic()
+    {
+        return view('docs.topic');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function week()
+    {
+        return view('docs.week');
+    }
 }

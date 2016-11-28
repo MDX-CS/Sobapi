@@ -45,7 +45,7 @@
 
                     <h3 id="viewing">Viewing</h3>
 
-                    <p>You can view the list of all students by sending a <code>GET|HEAD</code> request to the <code>api/students</code> uri. If you want to request just a specific student, send a <code>GET|HEAD</code> request to <code>api/students/{student}</code>, replacing the <code>student</code> wildcard with its <code>id</code>. You do not need any special authorization to perform this action, apart from have a valid access token.</p>
+                    <p>You can view the list of all students by sending a <code>GET|HEAD</code> request to the <code>api/students</code> uri. If you want to request just a specific student, send a <code>GET|HEAD</code> request to <code>api/students/{student}</code>, replacing the <code>student</code> wildcard with its <code>id</code>. You do not need any special authorization to perform this action, apart from having a valid access token.</p>
 
                     <h4>Response</h4>
 

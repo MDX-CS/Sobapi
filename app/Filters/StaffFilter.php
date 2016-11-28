@@ -12,7 +12,7 @@ class StaffFilter extends Filter
      * @var array
      */
     protected $searchable = [
-        //
+        'staff_id', 'firstname', 'lastname', 'email'
     ];
 
     /**
@@ -21,6 +21,9 @@ class StaffFilter extends Filter
      * @var array
      */
     protected $orderable = [
-        //
+        'id' => 'staff_id',
+        'first_name' => 'firstname',
+        'last_name' => 'lastname',
+        'email' => 'email',
     ];
 }

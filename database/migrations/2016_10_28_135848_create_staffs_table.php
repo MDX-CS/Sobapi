@@ -19,7 +19,7 @@ class CreateStaffsTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('password');
-            $table->string('enc_id');
+            $table->string('enc_id')->nullable();
             $table->string('email')->unique();
         });
     }

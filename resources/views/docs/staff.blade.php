@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('name', 'Student Resource&mdash;Documentation')
+@section('name', 'Staff Resource&mdash;Documentation')
 
 @section('content')
 <div class="container">
@@ -30,7 +30,7 @@
 
                     <h3 id="viewing">Viewing</h3>
 
-                    <p></p>
+                    <p>You can view the list of all staff by sending a <code>GET|HEAD</code> request to the <code>api/staff</code> uri. If you want to request just a specific member of staff, send a <code>GET|HEAD</code> request to <code>api/staff/{staff}</code>, replacing the <code>staff</code> wildcard with its <code>id</code>. You do not need any special authorization to perform this action, apart from having a valid access token.</p>
 
                     <h4>Response</h4>
 
@@ -39,7 +39,10 @@
                     <snippet>
 {
     "data": {
-        "id": 1
+        "id": 1,
+        "first_name": "Jon",
+        "last_name": "Doe",
+        "email": "jon.doe@example.com"
     }
 }
 
@@ -67,6 +70,21 @@
                                 <td>Orders results by their id</td>
                             </tr>
                             <tr>
+                                <td><code>?first_name</code></td>
+                                <td><code>asc|desc</code></td>
+                                <td>Orders results by their first name</td>
+                            </tr>
+                            <tr>
+                                <td><code>?last_name</code></td>
+                                <td><code>asc|desc</code></td>
+                                <td>Orders results by their last name</td>
+                            </tr>
+                            <tr>
+                                <td><code>?email</code></td>
+                                <td><code>asc|desc</code></td>
+                                <td>Orders results by their email</td>
+                            </tr>
+                            <tr>
                                 <td><code>?search</code></td>
                                 <td>Search pattern</td>
                                 <td>Searches in the table for desired results</td>
@@ -76,7 +94,7 @@
 
                     <h3 id="creating">Creating</h3>
 
-                    <p></p>
+                    <p>You are allowed to add new staff members by sending a <code>POST</code> requiest to the <code>api/staff</code> uri. <strong>Note, however, that you need to be authorized to manage staff to perform this action.</strong></p>
 
                     <h4>Arguments</h4>
 
@@ -92,10 +110,28 @@
 
                         <tbody>
                             <tr>
-                                <td><code>staff_id</code></td>
-                                <td><code>1</code></td>
+                                <td><code>network_name</code></td>
+                                <td><code>jd132</code></td>
+                                <td>Required, Unique</td>
+                                <td>The staff member's username</td>
+                            </tr>
+                            <tr>
+                                <td><code>firstname</code></td>
+                                <td><code>Jon</code></td>
                                 <td>Required</td>
-                                <td>The tutor id</td>
+                                <td>The staff member's first name</td>
+                            </tr>
+                            <tr>
+                                <td><code>lastname</code></td>
+                                <td><code>Doe</code></td>
+                                <td>Required</td>
+                                <td>The staff member's last name</td>
+                            </tr>
+                            <tr>
+                                <td><code>email</code></td>
+                                <td><code>jon.doe@example.com</code></td>
+                                <td>Required, Unique</td>
+                                <td>The staff member's email</td>
                             </tr>
                         </tbody>
                     </table>
@@ -106,7 +142,7 @@
 
                     <h3 id="updating">Updating</h3>
 
-                    <p></p>
+                    <p>You can edit staff members by sending a <code>PUT|PATCH</code> request to the <code>api/staff/{staff}</code> uri. The <code>staff</code> wildcard stands for the entry <code>id</code> <strong>Note, however, that you need to be authorized to manage staff to perform this action.</strong></p>
 
                     <h4>Arguments</h4>
 
@@ -118,7 +154,7 @@
 
                     <h3 id="deleting">Deleting</h3>
 
-                    <p></p>
+                    <p>Upon sending a <code>DELETE</code> request to the <code>api/staff/{staff}</code> uri, you will delete the <code>staff</code> under provided <code>id</code>. <strong>Note, however, that you need to be authorized to manage staff to perform this action.</strong></p>
 
                     <h4>Response</h4>
 

@@ -12,7 +12,7 @@ class WeekFilter extends Filter
      * @var array
      */
     protected $searchable = [
-        //
+        'week_id', 'week_start', 'week_end',
     ];
 
     /**
@@ -21,6 +21,8 @@ class WeekFilter extends Filter
      * @var array
      */
     protected $orderable = [
-        //
+        'id' => 'week_id',
+        'start' => 'week_start',
+        'end' => 'week_end',
     ];
 }

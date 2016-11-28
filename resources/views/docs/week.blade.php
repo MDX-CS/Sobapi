@@ -16,9 +16,6 @@
                         <li><a href="#basic-operations">Basic operations</a></li>
                         <ul>
                             <li><a href="#viewing">Viewing</a></li>
-                            <li><a href="#creating">Creating</a></li>
-                            <li><a href="#updating">Updating</a></li>
-                            <li><a href="#deleting">Deleting</a></li>
                         </ul>
                     </ul>
 
@@ -30,7 +27,7 @@
 
                     <h3 id="viewing">Viewing</h3>
 
-                    <p></p>
+                    <p>You can view the list of all weeks by sending a <code>GET|HEAD</code> request to the <code>api/weeks</code> uri. If you want to request just a specific week, send a <code>GET|HEAD</code> request to <code>api/weeks/{week}</code>, replacing the <code>week</code> wildcard with its <code>id</code>. You do not need any special authorization to perform this action, apart from having a valid access token.</p>
 
                     <h4>Response</h4>
 
@@ -39,7 +36,17 @@
                     <snippet>
 {
     "data": {
-        "id": 1
+        "id": 1,
+        "week_start": {
+            "date": "2016-10-03 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        },
+        "week_end": {
+            "date": "2016-10-07 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+        }
     }
 }
 
@@ -67,6 +74,16 @@
                                 <td>Orders results by their id</td>
                             </tr>
                             <tr>
+                                <td><code>?start</code></td>
+                                <td><code>asc|desc</code></td>
+                                <td>Orders results by the start date</td>
+                            </tr>
+                            <tr>
+                                <td><code>?end</code></td>
+                                <td><code>asc|desc</code></td>
+                                <td>Orders results by the end date</td>
+                            </tr>
+                            <tr>
                                 <td><code>?search</code></td>
                                 <td>Search pattern</td>
                                 <td>Searches in the table for desired results</td>
@@ -74,56 +91,9 @@
                         </tbody>
                     </table>
 
-                    <h3 id="creating">Creating</h3>
-
-                    <p></p>
-
-                    <h4>Arguments</h4>
-
-                    <table class="table table-default">
-                        <thead>
-                            <tr>
-                                <th>Argument</th>
-                                <th>Example</th>
-                                <th>Constraints</th>
-                                <th>Description</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <td><code>week_id</code></td>
-                                <td><code>1</code></td>
-                                <td>Required</td>
-                                <td>The tutor id</td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <h4>Response</h4>
-
-                    <p>See documentation on <a href="{{ url('/docs/responses') }}">http responses</a>, the <a href=" {{url('/docs/responses#creating') }}">successful creating</a> one in particular.</p>
-
-                    <h3 id="updating">Updating</h3>
-
-                    <p></p>
-
-                    <h4>Arguments</h4>
-
-                    <p>As request parameters, you can send any of the fields mentioned in the table above.</p>
-
-                    <h4>Response</h4>
-
-                    <p>See documentation on <a href="{{ url('/docs/responses') }}">http responses</a>, the <a href=" {{url('/docs/responses#updating') }}">successful updating</a> one in particular.</p>
-
-                    <h3 id="deleting">Deleting</h3>
-
-                    <p></p>
-
-                    <h4>Response</h4>
-
-                    <p>See documentation on <a href="{{ url('/docs/responses') }}">http responses</a>, the <a href=" {{url('/docs/responses#deleting') }}">successful deleting</a> one in particular.</p>
-
+                    <div class="beware">
+                        Note that this is a static resource and therefore is open for reading only.
+                    </div>
                 </div>
             </div>
         </div>

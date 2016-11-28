@@ -12,7 +12,7 @@ class LevelFilter extends Filter
      * @var array
      */
     protected $searchable = [
-        'level',
+        'level', 'level_id',
     ];
 
     /**

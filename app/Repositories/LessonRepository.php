@@ -27,7 +27,10 @@ class LessonRepository extends Repository
     public function storeRules()
     {
         return [
-            //
+            'day' => 'required|in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday',
+            'room' => 'required|min:3',
+            'starttime' => 'required|regex:[0-9]{1,2}:[0-9]{2}',
+            'endtime' => 'required|regex:[0-9]{1,2}:[0-9]{2}',
         ];
     }
 
@@ -39,7 +42,10 @@ class LessonRepository extends Repository
     public function updateRules()
     {
         return [
-            //
+            'day' => 'in:Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday',
+            'room' => 'min:3',
+            'starttime' => 'regex:[0-9]{1,2}:[0-9]{2}',
+            'endtime' => 'regex:[0-9]{1,2}:[0-9]{2}',
         ];
     }
 

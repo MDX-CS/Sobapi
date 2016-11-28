@@ -381,24 +381,9 @@
                                 <td>Returns all weeks</td>
                             </tr>
                             <tr>
-                                <td><code>POST</code></td>
-                                <td><code>api/weeks</code></td>
-                                <td>Stores a new week</td>
-                            </tr>
-                            <tr>
-                                <td><code>DELETE</code></td>
-                                <td><code>api/weeks/{week}</code></td>
-                                <td>Removes given week</td>
-                            </tr>
-                            <tr>
-                                <td><code>PUT|PATCH</code></td>
-                                <td><code>api/weeks/{week}</code></td>
-                                <td>Updates given week</td>
-                            </tr>
-                            <tr>
                                 <td><code>GET|HEAD</code></td>
                                 <td><code>api/weeks/{week}</code></td>
-                                <td>Returns all week</td>
+                                <td>Returns given week</td>
                             </tr>
                         </tbody>
                     </table>

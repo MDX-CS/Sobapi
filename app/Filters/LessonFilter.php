@@ -11,12 +11,20 @@ class LessonFilter extends Filter
      *
      * @var array
      */
-    protected $searchable = [];
+    protected $searchable = [
+        'room', 'day', 'id',
+    ];
 
     /**
      * Orderable columns.
      *
      * @var array
      */
-    protected $orderable = [];
+    protected $orderable = [
+        'id' => 'lesson_id',
+        'room' => 'room',
+        'day' => 'day',
+        'start' => 'starttime',
+        'end' => 'endtime',
+    ];
 }

@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('name', 'Student Resource&mdash;Documentation')
+@section('name', 'Topic Resource&mdash;Documentation')
 
 @section('content')
 <div class="container">
@@ -30,7 +30,7 @@
 
                     <h3 id="viewing">Viewing</h3>
 
-                    <p></p>
+                    <p>You can view the list of all topics by sending a <code>GET|HEAD</code> request to the <code>api/topics</code> uri. If you want to request just a specific topic, send a <code>GET|HEAD</code> request to <code>api/topics/{topic}</code>, replacing the <code>topic</code> wildcard with its <code>id</code>. You do not need any special authorization to perform this action, apart from having a valid access token.</p>
 
                     <h4>Response</h4>
 
@@ -39,10 +39,10 @@
                     <snippet>
 {
     "data": {
-        "id": 1
+        "id": 1,
+        "name": "Synoptics"
     }
 }
-
                     </snippet>
 
                     <p>Note that when requesting all resources, an array of these objects will rather be returned.</p>
@@ -67,6 +67,11 @@
                                 <td>Orders results by their id</td>
                             </tr>
                             <tr>
+                                <td><code>?name</code></td>
+                                <td><code>asc|desc</code></td>
+                                <td>Orders results by their name</td>
+                            </tr>
+                            <tr>
                                 <td><code>?search</code></td>
                                 <td>Search pattern</td>
                                 <td>Searches in the table for desired results</td>
@@ -76,7 +81,7 @@
 
                     <h3 id="creating">Creating</h3>
 
-                    <p></p>
+                    <p>You are allowed to add new topics by sending a <code>POST</code> requiest to the <code>api/topics</code> uri. <strong>Note, however, that you need to be authorized to manage topics to perform this action.</strong></p>
 
                     <h4>Arguments</h4>
 
@@ -92,10 +97,10 @@
 
                         <tbody>
                             <tr>
-                                <td><code>topic_id</code></td>
-                                <td><code>1</code></td>
+                                <td><code>name</code></td>
+                                <td><code>Synoptics</code></td>
                                 <td>Required</td>
-                                <td>The tutor id</td>
+                                <td>The topic name</td>
                             </tr>
                         </tbody>
                     </table>
@@ -106,7 +111,7 @@
 
                     <h3 id="updating">Updating</h3>
 
-                    <p></p>
+                    <p>You can edit topics by sending a <code>PUT|PATCH</code> request to the <code>api/topics/{topic}</code> uri. The <code>topic</code> wildcard stands for the entry <code>id</code> <strong>Note, however, that you need to be authorized to manage topics to perform this action.</strong></p>
 
                     <h4>Arguments</h4>
 
@@ -118,7 +123,7 @@
 
                     <h3 id="deleting">Deleting</h3>
 
-                    <p></p>
+                    <p>Upon sending a <code>DELETE</code> request to the <code>api/topics/{topic}</code> uri, you will delete the <code>topic</code> under provided <code>id</code>. <strong>Note, however, that you need to be authorized to manage topics to perform this action.</strong></p>
 
                     <h4>Response</h4>
 

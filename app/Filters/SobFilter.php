@@ -20,6 +20,8 @@ class SobFilter extends Filter
      */
     protected $orderable = [
         'id' => 'sob_id',
-        'sob' => 'sob',
+        'name' => 'sob',
+        'end' => 'expected_end_date',
+        'start' => 'expected_start_date',
     ];
 }

@@ -99,7 +99,7 @@ abstract class Repository
     abstract public function updateRules();
 
     /**
-     * The database key for given resource
+     * The database key for given resource.
      *
      * @return string
      */

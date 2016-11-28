@@ -12,7 +12,7 @@ class StaffFilter extends Filter
      * @var array
      */
     protected $searchable = [
-        'staff_id', 'firstname', 'lastname', 'email'
+        'staff_id', 'firstname', 'lastname', 'email',
     ];
 
     /**

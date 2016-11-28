@@ -12,7 +12,7 @@ class TopicFilter extends Filter
      * @var array
      */
     protected $searchable = [
-        'topic',
+        'topic', 'topic_id',
     ];
 
     /**

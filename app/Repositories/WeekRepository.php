@@ -42,4 +42,14 @@ class WeekRepository extends Repository
             //
         ];
     }
+
+    /**
+     * The database key for this resource.
+     *
+     * @return array
+     */
+    public function databaseKey()
+    {
+        return 'week_id';
+    }
 }

@@ -27,7 +27,14 @@ class StudentRepository extends Repository
     public function storeRules()
     {
         return [
-            //
+            'staff_id' => 'required|numeric',
+            'network_name' => 'required|min:4|unique:students,network_name',
+            'firstname' => 'required|min:4',
+            'lastname' => 'required|min:4',
+            'email' => 'required|email|unique:students,email',
+            'student_number' => 'required|min:8|unique:students,student_number',
+            'visa' => 'numeric',
+            'foundation' => 'numeric',
         ];
     }
 
@@ -39,7 +46,24 @@ class StudentRepository extends Repository
     public function updateRules()
     {
         return [
-            //
+            'staff_id' => 'numeric',
+            'network_name' => 'min:4|unique:students,network_name',
+            'firstname' => 'min:4',
+            'lastname' => 'min:4',
+            'email' => 'email|unique:students,email',
+            'student_number' => 'min:8|unique:students,student_number',
+            'visa' => 'numeric',
+            'foundation' => 'numeric',
         ];
+    }
+
+    /**
+     * The database key for this resource.
+     *
+     * @return array
+     */
+    public function databaseKey()
+    {
+        return 'student_id';
     }
 }

@@ -1,12 +1,12 @@
 @extends('layouts.app')
 
-@section('name', 'Down for Maintenance')
+@section('name', 'Not Found')
 
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1 style="text-align: center;">Server is down for maintenance, we will be right back.</h1>
+            <h1 style="text-align: center;">Oops, looks like you've reached a dead end.</h1>
         </div>
     </div>
 </div>

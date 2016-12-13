@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-md-3 side-menu">
     <h4>Getting started</h4>
 
     <ul class="nav nav-pills nav-stacked">

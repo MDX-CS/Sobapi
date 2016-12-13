@@ -64,7 +64,7 @@ $query = http_build_query([
     'response_type' => 'code',
 ]);
 
-return header('Location: SOBAPI/oauth/authorize?' . $query);
+return header('Location: http://10.14.66.51:8080/oauth/authorize?' . $query);
                     </snippet>
 
                     <div class="beware">
@@ -81,7 +81,7 @@ return header('Location: SOBAPI/oauth/authorize?' . $query);
                     <snippet>
 $client = new GuzzleHttp\Client;
 
-$response = $client->post('SOBAPI/oauth/token', [
+$response = $client->post('http://10.14.66.51:8080/oauth/token', [
     'form_params' => [
         'grant_type' => 'authorization_code',
         'client_id' => $app_id,
@@ -97,7 +97,11 @@ $response = $client->post('SOBAPI/oauth/token', [
                     <p>The json that we get from <code>json_decode((string) $response->getBody(), true)</code> looks following: </p>
 
                     <snippet>
-
+{
+    "access_token": "e073837eea7acddc629fac7eb4ad72b7",
+    "refresh_token": "9dd4e461268c8034f5c8564e155c67a6",
+    "expires_in": 86400
+}
                     </snippet>
 
                     <h3 id="consume-the-api">Cosnsume the Api!</h3>

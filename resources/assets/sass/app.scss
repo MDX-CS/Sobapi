@@ -31,6 +31,7 @@ h1 {
 h2 {
   position: relative;
   font-size: 25px;
+  margin: 40px 0;
 
   a {
     color: inherit;
@@ -39,6 +40,16 @@ h2 {
       text-decoration: none;
       color: inherit;
     }
+  }
+
+  &:before {
+    color: $brand-primary;
+    content: "#";
+    font-size: 22px;
+    margin-left: -25px;
+    opacity: .6;
+    position: absolute;
+    top: 3px;
   }
 }
 
@@ -52,16 +63,6 @@ h4 {
   font-size: 15px;
   font-weight: 700;
   margin: 20px 0;
-}
-
-h2:before {
-  color: $brand-primary;
-  content: "#";
-  font-size: 22px;
-  margin-left: -25px;
-  opacity: .6;
-  position: absolute;
-  top: 3px;
 }
 
 ul.content-summary {
@@ -145,5 +146,31 @@ footer.footer {
     &:hover {
       color: white;
     }
+  }
+}
+
+@media print {
+  .side-menu, .footer {
+    display: none;
+  }
+
+  h2:before {
+    content: '';
+  }
+
+  code, pre {
+    page-break-inside: avoid;
+  }
+
+  h2 {
+    page-break-before: always;
+  }
+
+  h3, h4 {
+    page-break-after: avoid;
+  }
+
+  .beware {
+    font-weight: 700;
   }
 }

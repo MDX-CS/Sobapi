@@ -45,7 +45,6 @@
         "email": "jon.doe@example.com"
     }
 }
-
                     </snippet>
 
                     <p>Note that when requesting all resources, an array of these objects will rather be returned.</p>

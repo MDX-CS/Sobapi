@@ -28,7 +28,7 @@
                     <snippet>
 $client = new GuzzleHttp\Client;
 
-$client->request('GET', 'SOBAPI/api/students', [
+$client->request('GET', 'http://10.14.66.51:8080/api/students', [
     'headers' => [
         'Authorization' => sprintf('Bearer %s', $access_token),
     ]
@@ -48,7 +48,7 @@ $client->request('GET', 'SOBAPI/api/students', [
                     <snippet>
 $client = new GuzzleHttp\Client;
 
-$client->request('GET', 'SOBAPI/api/students', [
+$client->request('GET', 'http://10.14.66.51:8080/api/students', [
     'headers' => [
         'Authorization' => sprintf('Bearer %s', $access_token),
         'Accept' => 'application/json',
